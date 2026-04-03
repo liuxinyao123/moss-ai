@@ -1,6 +1,8 @@
 # MOSS-AI 架构文档 (v2.0)
 
-重构自 OpenHanako 最佳实践
+重构自 OpenHanako 最佳实践。
+
+> **目录与双后端对照**（为何根目录有 `server/` 又有 `backend/`、core 里为何两套命名）：见 [docs/PROJECT-LAYOUT.md](./docs/PROJECT-LAYOUT.md)。
 
 ## 整体架构
 

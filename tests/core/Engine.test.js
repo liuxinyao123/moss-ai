@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { Engine } from '../../core/Engine';
+import { Engine } from '../../core/engine.js';
 
 describe('Engine', () => {
   let engine;

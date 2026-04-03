@@ -26,27 +26,29 @@
 
 ## 项目结构
 
+根目录同时存在 **v2 主服务**（`server/` + `core/` + `hub/`）与 **独立 backend 进程**（`backend/server.js`），历史上还叠了 DSclaw 部分模块，因此容易显得「乱」。**以谁为准**：日常开发与 `npm start` / `./start.sh` 以 **`server/index.js`** 为准；协作/OpenClaw 深度集成见 **`backend/`**。详细对照与收敛建议见 **[docs/PROJECT-LAYOUT.md](./docs/PROJECT-LAYOUT.md)**。
+
 ```
 moss-ai/
-├── server/           # HTTP / WebSocket 入口（对外 API）
-├── core/             # 引擎与各管理器（Agent / Session / Model / Skill …）
-├── hub/              # 后台任务：cron、事件总线、心跳、频道路由
-├── lib/              # 记忆、沙箱、桥接（飞书/QQ/Telegram 等）、人格、Desk 等
-├── desktop/          # Electron 客户端（main.cjs + 前端资源）
-├── backend/          # 历史/兼容或扩展服务（含 SSO 相关 .env.example）
-├── skills/           # 技能定义与资源
-├── agents/           # 运行时智能体数据（默认被 .gitignore 排除，见 agents/README.md）
-├── config/           # 示例与本地配置（如 kasm、bytebot）
-├── scripts/          # 辅助脚本
-├── tests/            # Vitest 单元测试
-├── demo-scene/       # 演示/自动化场景（大文件已在 .gitignore 中排除）
-├── start.sh / stop.sh # 一键启停（后端 + 桌面）
-├── package.json
-├── ARCHITECTURE.md   # 架构说明
+├── server/              # ★ v2 主入口：HTTP / WebSocket（npm start）
+├── core/                # v2 Engine + 各 Manager；内含历史协作用 kebab 文件（见 core/README.md）
+├── hub/                 # v2 后台 Hub；另有旧版 hub/index 链路，勿混用
+├── lib/                 # 记忆 / 沙箱 / 桥接 / 人格 / Desk / Kasm / Bytebot …
+├── desktop/             # Electron（main.cjs + 渲染进程逻辑）
+├── backend/             # 独立 Express：协作 API、SSO、OpenClaw CLI（默认也占 3001，与 v2 二选一）
+├── skills/              # 技能包（builtin / community）
+├── agents/              # 运行时数据（.gitignore，见 agents/README.md）
+├── config/              # Kasm、Bytebot 等示例配置
+├── scripts/             # Python / Shell 辅助脚本
+├── tests/               # Vitest
+├── demo-scene/          # 演示（大文件已忽略）
+├── docs/                # 集成说明 + PROJECT-LAYOUT（目录导览）
+├── start.sh / stop.sh   # 启停 v2 后端 + 桌面
+├── ARCHITECTURE.md      # 分层设计理念
 └── README.md
 ```
 
-启动脚本会拉起 **`server/index.js`**（端口默认 **3001**），再启动 **`desktop/`** 下的 Electron。
+`./start.sh` 会拉起 **`server/index.js`**（默认端口 **3001**），再启动 **`desktop/`**。**不要**与 `backend/server.js` 同时监听同一端口。
 
 ## 本地开发
 
@@ -152,5 +154,6 @@ MIT（见 `package.json` 中 `license` 字段）。
 
 ## 相关文档
 
+- [docs/PROJECT-LAYOUT.md](./docs/PROJECT-LAYOUT.md) — **目录导览**（v2 / backend / 旧模块对照）  
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 分层与模块说明  
 - [COLLABORATION-TEST-GUIDE.md](./COLLABORATION-TEST-GUIDE.md) — 协作测试指引  

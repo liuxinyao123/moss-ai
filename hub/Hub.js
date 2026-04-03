@@ -8,7 +8,7 @@
 const { Scheduler } = require('./Scheduler');
 const { EventBus } = require('./EventBus');
 const { ChannelRouter } = require('./ChannelRouter');
-const { Heartbeat } = require('./Heartbeat');
+const { Heartbeat } = require('./heartbeat');
 
 class Hub {
   constructor(engineApi) {

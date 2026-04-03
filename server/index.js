@@ -7,7 +7,7 @@
  * - Server: HTTP + WebSocket 服务
  */
 
-const { Engine } = require('../core/Engine');
+const { Engine } = require('../core/engine');
 const { Hub } = require('../hub/Hub');
 const { Sandbox } = require('../lib/sandbox/Sandbox');
 const { PersonalityManager } = require('../lib/identity/PersonalityManager');
