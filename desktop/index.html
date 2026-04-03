@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSclaw 桌面助手</title>
+    <link rel="icon" type="image/svg+xml" href="assets/dsclaw-icon.svg">
+    <link rel="apple-touch-icon" href="assets/icon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <style>
@@ -90,13 +92,13 @@
             color: var(--text-primary);
             white-space: nowrap;
         }
-        .topbar-title::before {
-            content: "";
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-hover), var(--accent-strong));
-            box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.45);
+        .topbar-logo {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(204, 0, 32, 0.35));
         }
         .topbar-meta {
             display: flex;
@@ -2808,7 +2810,10 @@
 <body>
     <div class="topbar">
         <div class="topbar-left">
-            <div class="topbar-title">DSclaw</div>
+            <div class="topbar-title">
+                <img class="topbar-logo" src="assets/dsclaw-icon.svg" width="26" height="26" alt="" />
+                DSclaw
+            </div>
             <div class="topbar-meta">
                 <span class="topbar-chip" title="当前智能体" id="current-agent-name">未选择</span>
                 <span class="topbar-chip" id="current-connection-status">实时未连接</span>

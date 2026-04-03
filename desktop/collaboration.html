@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSclaw - 多智能体协作系统</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/dsclaw-icon.svg">
+    <link rel="apple-touch-icon" href="assets/icon.png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,10 +50,15 @@
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .logo i { color: var(--accent); font-size: 24px; }
+        .logo-img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
 
         .nav-items {
             display: flex;
@@ -444,7 +451,7 @@
     <!-- 顶部导航 -->
     <nav class="top-nav">
         <div class="logo">
-            <i class="ri-robot-2-line"></i>
+            <img class="logo-img" src="assets/dsclaw-icon.svg" width="28" height="28" alt="" />
             <span>DSclaw</span>
         </div>
         <div class="nav-items">

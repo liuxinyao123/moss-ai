@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#0f0f1a"/>
+    </linearGradient>
+    <linearGradient id="cg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a2a"/>
+      <stop offset="50%" stop-color="#cc0020"/>
+      <stop offset="100%" stop-color="#880010"/>
+    </linearGradient>
+    <linearGradient id="cg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="100%" stop-color="#aa0018"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 满铺不透明背景（覆盖圆角透明部分） -->
+  <rect width="400" height="400" fill="url(#bgGrad)"/>
+
+  <!-- 装饰光晕 -->
+  <ellipse cx="200" cy="200" rx="145" ry="145" fill="none" stroke="#cc0020" stroke-width="0.6" opacity="0.12"/>
+  <ellipse cx="200" cy="200" rx="105" ry="105" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.08"/>
+
+  <!-- 爪痕图标 -->
+  <g transform="translate(128, 90)" filter="url(#glow)">
+    <path d="M 22 18 Q 18 36 24 72" stroke="url(#cg1)" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M 40 10 Q 38 42 44 80" stroke="url(#cg1)" stroke-width="13" stroke-linecap="round" fill="none"/>
+    <path d="M 58 14 Q 58 40 62 74" stroke="url(#cg2)" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M 73 22 Q 76 44 76 70" stroke="url(#cg2)" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.75"/>
+    <path d="M 19 20 Q 40 8 77 24" stroke="url(#cg1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- 品牌文字 -->
+  <text x="200" y="296"
+    font-family="'Helvetica Neue', 'SF Pro Display', Arial, sans-serif"
+    font-weight="800"
+    font-size="54"
+    text-anchor="middle"
+    letter-spacing="8"
+    fill="#ffffff">DS<tspan fill="url(#cg1)">CLAW</tspan></text>
+
+  <!-- 副标题 -->
+  <text x="200" y="324"
+    font-family="'Helvetica Neue', 'SF Pro Display', Arial, sans-serif"
+    font-weight="400"
+    font-size="12"
+    text-anchor="middle"
+    letter-spacing="5"
+    fill="#444466">CUTTING-EDGE TECHNOLOGY</text>
+</svg>

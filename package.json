@@ -8,6 +8,7 @@
     "start:engine": "node server/index.js",
     "start:desktop": "electron .",
     "build": "electron-builder",
+    "icons": "node desktop/scripts/build-icon.cjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -24,6 +25,7 @@
   "devDependencies": {
     "electron": "^33.4.11",
     "electron-builder": "^24.9.1",
+    "sharp": "^0.33.5",
     "vitest": "^1.0.0"
   },
   "dependencies": {

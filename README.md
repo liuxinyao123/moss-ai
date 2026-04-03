@@ -47,6 +47,7 @@ node backend/server.js
 | `npm start` | 主 API |
 | `npm run start:engine` | 可选实验进程，勿与主 API 同占 3001 |
 | `npm run test` | Vitest |
+| `npm run icons` | 从 `desktop/assets/dsclaw-icon.svg` 重新生成 `icon.png`（需 devDependency `sharp`） |
 
 ## 许可证
 

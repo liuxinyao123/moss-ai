@@ -50,6 +50,9 @@ function migrateLegacyUserData() {
 }
 
 function createWindow() {
+  const iconPng = path.join(__dirname, 'assets', 'icon.png');
+  const iconOpts = fs.existsSync(iconPng) ? { icon: iconPng } : {};
+
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -57,6 +60,7 @@ function createWindow() {
     minHeight: 600,
     titleBarStyle: 'hiddenInset',
     backgroundColor: '#050b12',
+    ...iconOpts,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
