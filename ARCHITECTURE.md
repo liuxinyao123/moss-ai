@@ -1,8 +1,8 @@
 # MOSS-AI 架构文档 (v2.0)
 
-重构自 OpenHanako 最佳实践。
+重构自 OpenHanako 最佳实践。**当前产品主路线以 ClawX / OpenClaw 为中心**：默认 HTTP API 为 **`backend/server.js`**（桌面、协作、对话、OpenClaw CLI）；下文「Server」层中的 **`server/index.js` + Engine + Hub** 为可选 v2 进程，用于引擎实验与测试，与主 API 勿同端口并行。
 
-> **目录与双后端对照**（为何根目录有 `server/` 又有 `backend/`、core 里为何两套命名）：见 [docs/PROJECT-LAYOUT.md](./docs/PROJECT-LAYOUT.md)。
+> **目录对照**：见 [docs/PROJECT-LAYOUT.md](./docs/PROJECT-LAYOUT.md)。
 
 ## 整体架构
 
@@ -91,10 +91,12 @@
 
 ```bash
 cd moss-ai
-npm install  # 安装新依赖
-./start.sh    # 启动后端 + 桌面
+npm install
+./start.sh              # ClawX 主路线：backend/server.js + 桌面
 
-# 运行测试
+# 可选：仅 v2 引擎（子集 API，勿与 backend 同占 3001）
+# npm run start:engine
+
 npm run test
 npm run test:coverage
 ```

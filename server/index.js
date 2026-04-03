@@ -1,10 +1,8 @@
 /**
- * MOSS-AI Server Entry
- * 
- * 新架构入口：
- * - Core: 引擎编排 + 各个管理器
- * - Hub: 独立后台任务调度（心跳、cron、事件总线）
- * - Server: HTTP + WebSocket 服务
+ * MOSS-AI — 可选 v2 引擎入口（npm run start:engine）
+ *
+ * 与 ClawX 主路线无关时仍可用于实验：Core 编排 + Hub 后台任务 + 子集 HTTP/WebSocket。
+ * 桌面端与 OpenClaw 全量 API 以 backend/server.js（npm start）为准，勿与本进程同端口并行。
  */
 
 const { Engine } = require('../core/engine');

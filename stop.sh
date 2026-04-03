@@ -37,12 +37,14 @@ else
     echo "⚠️  未找到后端服务 PID 文件"
 fi
 
-# 停止所有 node server.js 进程
-pkill -f "node server.js" 2>/dev/null
+# 兜底：主路线 backend/server.js；可选 npm run start:engine 的 server/index.js
+pkill -f "node backend/server.js" 2>/dev/null
 if [ $? -eq 0 ]; then
-    echo "✅ 停止 Node.js 服务进程"
-else
-    echo "⚠️  无 Node.js 服务进程在运行"
+    echo "✅ 已结束 node backend/server.js"
+fi
+pkill -f "node server/index.js" 2>/dev/null
+if [ $? -eq 0 ]; then
+    echo "✅ 已结束 node server/index.js（引擎模式）"
 fi
 
 # 清理

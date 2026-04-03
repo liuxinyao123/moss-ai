@@ -10,8 +10,8 @@ cd /Users/xinyao/.openclaw/workspace/moss-ai
 # 方式1: 使用启动脚本
 ./start.sh
 
-# 方式2: 直接启动
-cd backend && node server.js
+# 方式2: 仓库根目录（与 ClawX 主路线一致）
+npm start
 ```
 
 验证服务器是否运行：

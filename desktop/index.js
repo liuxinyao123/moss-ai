@@ -1,4 +1,4 @@
-// DSclaw 桌面应用 - 真实后端连接版本
+// MOSS 桌面应用 — 默认连接 ClawX 主路线 API（仓库根目录 npm start → backend/server.js）
 const BACKEND_URL = 'http://127.0.0.1:3001';
 const COLLAB_API_BASE = 'http://127.0.0.1:3001/api/collaboration';
 const AGENTS_API_BASE = 'http://127.0.0.1:3001/api/agents';

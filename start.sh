@@ -24,35 +24,34 @@ wait_for_backend() {
     return 1
 }
 
-echo "🚀 启动 MOSS AI 系统 (v2.0 - OpenHanako 架构重构)"
+echo "🚀 启动 MOSS AI（ClawX / OpenClaw 主路线 — API: backend/server.js）"
 echo "=================================="
+echo "💡 请先在本机安装并运行 ClawX，配置好 OpenClaw Gateway 与 ~/.openclaw/openclaw.json"
+echo ""
 
 # 检查是否已经有进程在运行
 if [ -f "$BACKEND_PID_FILE" ] && kill -0 $(<"$BACKEND_PID_FILE") 2>/dev/null; then
-    echo "⚠️  后端服务已经在运行 (PID: $(<"$BACKEND_PID_FILE"))"
+    echo "⚠️  API 服务已在运行 (PID: $(<"$BACKEND_PID_FILE"))"
 else
-    echo "启动后端服务 (新架构 core/lib/hub/server)..."
-    cd "$ROOT_DIR/server" || exit 1
-    nohup node index.js > "$LOG_DIR/backend.log" 2>&1 &
-    echo $! > "$BACKEND_PID_FILE"
+    echo "启动 API 服务（backend/server.js，端口 3001）..."
     cd "$ROOT_DIR" || exit 1
-    echo "✅ 后端服务已启动 (PID: $(<"$BACKEND_PID_FILE"))"
+    nohup node backend/server.js > "$LOG_DIR/backend.log" 2>&1 &
+    echo $! > "$BACKEND_PID_FILE"
+    echo "✅ API 服务已启动 (PID: $(<"$BACKEND_PID_FILE"))"
 fi
 
-# 检查后端是否正常
-echo "检查后端服务..."
+echo "检查 API..."
 if wait_for_backend 15; then
-    echo "✅ 后端服务正常"
+    echo "✅ API 正常（/api/agents 可访问）"
 else
-    echo "❌ 后端服务无法访问，请检查 logs/backend.log"
+    echo "❌ API 无法访问，请检查 logs/backend.log"
     exit 1
 fi
 
-# 检查是否已经有桌面应用在运行
 if pgrep -f "electron\\s+\\." > /dev/null; then
     echo "⚠️  桌面应用已经在运行"
 else
-    echo "启动桌面应用..."
+    echo "启动桌面应用（Electron）..."
     cd "$ROOT_DIR/desktop" || exit 1
     unset ELECTRON_RUN_AS_NODE
     nohup npm start > "$LOG_DIR/desktop.log" 2>&1 &
@@ -63,17 +62,16 @@ fi
 
 echo ""
 echo "=================================="
-echo "🎉 MOSS AI 系统已启动 (v2.0)"
+echo "🎉 MOSS AI 已启动（ClawX 主路线）"
 echo ""
-echo "📊 后端服务: http://localhost:3001"
+echo "📊 API: http://localhost:3001"
 echo "   Health: http://localhost:3001/health"
-echo "🖥️  桌面应用: 已启动 (Electron)"
+echo "🖥️  桌面: Electron（连接上述 API + 本机 OpenClaw）"
 echo ""
-echo "📋 API端点:"
-echo "  • GET /api/health - 健康检查"
-echo "  • GET /api/agents - 智能体列表"
-echo "  • GET /api/skills - 技能列表"
-echo "  • GET /api/personality/templates - 人格模板列表"
+echo "📋 常用 API:"
+echo "  • GET /health /api/agents /api/skills"
+echo "  • POST /api/chat — 经 OpenClaw（需在 ClawX 中配置 Gateway）"
+echo "  • GET /api/openclaw/models — 与 openclaw.json 对齐"
 echo ""
 echo "📋 智能体列表:"
 AGENTS_JSON="$(fetch_agents 2>/dev/null || true)"
@@ -98,10 +96,7 @@ except json.JSONDecodeError:
 PY
 fi
 echo ""
-echo "📁 日志文件:"
-echo "  • logs/backend.log"
-echo "  • logs/desktop.log"
-echo ""
-echo "🛑 停止系统: ./stop.sh"
-echo "🧪 运行测试: npm run test"
+echo "📁 日志: logs/backend.log · logs/desktop.log"
+echo "🛑 停止: ./stop.sh"
+echo "🧪 可选 v2 引擎进程（无 OpenClaw 全量 API）: npm run start:engine"
 echo "=================================="

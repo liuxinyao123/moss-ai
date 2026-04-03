@@ -1,21 +1,23 @@
-# `core/` 说明
+# `core/` 说明（ClawX 主路线下的角色）
 
-## 当前状态（重要）
+## 默认怎么用
 
-这里同时存在 **v2 主路径** 与 **历史 DSclaw / 协作栈** 代码，因此会看到 **PascalCase** 与 **kebab-case** 两套文件。
+日常 **`npm start`** 拉起的是 **`backend/server.js`**。它会 `require` **协作栈**里的 kebab-case 模块（如 `ability-matrix.js`、`collaboration-api` 等）。这些与 **ClawX / OpenClaw** 驱动的桌面、聊天、协作流直接相关。
 
-### v2（与 `server/index.js` 配套）
+## 两条代码链
 
-- **`engine.js`**：`Engine` 门面，组装 `AgentManager.js`、`SessionManager.js`、`ModelManager.js`、`PreferencesManager.js`、`SkillManager.js`、`ChannelManager.js`、`BridgeSessionManager.js`。
-- 新功能优先接在这一条链路上。
+### 1. 协作 / backend（主路线）
 
-### 协作 / 多智能体矩阵（多为 `backend/` 引用）
+- **`agent-manager.js`**、**`multi-agent.js`**、**`ability-matrix.js`**、**`message-router.js`**、**`task-collaborator.js`**、**`smart-delegator.js`** 等。  
+- 面向 **`backend/server.js`** 与 **`backend/collaboration-api.js`**。
 
-- **`agent-manager.js`**、**`multi-agent.js`**、**`ability-matrix.js`**、**`message-router.js`**、**`task-collaborator.js`**、**`smart-delegator.js`** 等：被 `backend/collaboration-api.js` 等使用。
-- 与 v2 的 **`AgentManager.js` 不是同一个类**（工作区路径与职责也不同），迁移前请对照调用方。
+### 2. v2 Engine（可选，`npm run start:engine`）
+
+- **`engine.js`** + **`AgentManager.js`**、**`SessionManager.js`** 等 PascalCase 管理器。  
+- 仅在被 **`server/index.js`** 拉起时使用；API 为子集，**不替代** backend。
 
 ### 旧聚合入口
 
-- **`index.js`**：导出旧版 `AgentManager` / `Engine` 等组合；**新代码请勿依赖**，以免和 v2 混淆。
+- **`index.js`**：历史 DSclaw 导出；新功能请挂 backend 或 v2 其中一条明确链路，勿混用。
 
-更完整的目录关系见 **[docs/PROJECT-LAYOUT.md](../docs/PROJECT-LAYOUT.md)**。
+详见 **[docs/PROJECT-LAYOUT.md](../docs/PROJECT-LAYOUT.md)**。
