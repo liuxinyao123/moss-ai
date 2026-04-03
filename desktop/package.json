@@ -1,0 +1,13 @@
+{
+  "name": "dsclaw",
+  "productName": "DSclaw",
+  "version": "1.0.0",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "env -u ELECTRON_RUN_AS_NODE electron .",
+    "dev": "env -u ELECTRON_RUN_AS_NODE electron ."
+  },
+  "devDependencies": {
+    "electron": "^33.4.11"
+  }
+}

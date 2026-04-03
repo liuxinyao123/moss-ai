@@ -1,0 +1,49 @@
+{
+  "id": "automotive-enterprise-roles-v1.0.0",
+  "name": "汽车企业专属AI角色",
+  "version": "1.0.0",
+  "description": "为汽车整车企业和零部件供应商量身定制的专业AI角色集合，覆盖研发、制造、质量、市场全流程",
+  "author": "MOSS AI Team",
+  "license": "MIT",
+  "repository": "",
+  "entry_point": "skill.js",
+  "dependencies": [],
+  "permissions": {
+    "network": false,
+    "file_system": true,
+    "memory_access": true,
+    "agent_communication": true,
+    "permission_level": 2
+  },
+  "triggers": [
+    {
+      "type": "keyword",
+      "patterns": ["汽车", "车企", "整车", "零部件", "汽车企业", "车载", "车机", "自动驾驶", "BMS", "动力电池"]
+    }
+  ],
+  "parameters": [],
+  "capabilities": [
+    "automotive-role-library",
+    "industry-specialized-agents",
+    "rd-embedded-development",
+    "manufacturing-quality",
+    "digital-marketing"
+  ],
+  "metadata": {
+    "category": "industry",
+    "tags": ["automotive", "car", "automobile", "oem", "supplier", "embedded", "ecu"],
+    "compatibility": ["nodejs>=14.0.0"],
+    "created_at": "2026-03-31T08:43:00Z",
+    "last_updated": "2026-03-31T08:43:00Z"
+  },
+  "examples": [
+    {
+      "input": "列出汽车研发需要的所有AI角色",
+      "output": "显示研发部门核心角色列表"
+    },
+    {
+      "input": "给我动力电池企业角色推荐",
+      "output": "输出零部件供应商专属角色配置"
+    }
+  ]
+}

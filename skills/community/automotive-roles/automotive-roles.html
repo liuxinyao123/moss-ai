@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚗 MOSS-AI 汽车企业专属AI角色配置</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            accent: '#dc2626',
+            automotive: '#16a34a',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); }
+    .role-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+    .role-card { transition: all 0.2s; }
+  </style>
+</head>
+<body>
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <i class="fa fa-car text-automotive mr-3"></i>
+        汽车企业专属AI角色配置
+      </h1>
+      <p class="text-xl text-gray-600">MOSS-AI · 为整车厂和零部件供应商量身定制的专业AI角色集合</p>
+    </header>
+
+    <!-- Recommendation Card -->
+    <section class="mb-10">
+      <div class="bg-white rounded-2xl shadow-lg border border-green-100 overflow-hidden p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+          <i class="fa fa-lightbulb-o text-yellow-500 mr-3"></i>
+          快速配置推荐
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- OEM Recommendation -->
+          <div class="bg-blue-50 rounded-xl p-5">
+            <h3 class="text-lg font-semibold text-blue-900 mb-3">🏢 整车厂（智能网联）</h3>
+            <p class="text-blue-800 text-sm mb-3"><strong>总计:</strong> 20 个专业角色</p>
+            <ul class="text-sm text-blue-700 space-y-1">
+              
+                <li><strong>研发部门 (8):</strong> 8 个角色</li>
+              
+                <li><strong>数据部门 (3):</strong> 3 个角色</li>
+              
+                <li><strong>质量测试 (3):</strong> 3 个角色</li>
+              
+                <li><strong>产品项目 (2):</strong> 2 个角色</li>
+              
+                <li><strong>数字化营销 (4):</strong> 4 个角色</li>
+              
+                <li><strong>战略创新 (2):</strong> 2 个角色</li>
+              
+            </ul>
+          </div>
+          <!-- Supplier Recommendation -->
+          <div class="bg-green-50 rounded-xl p-5">
+            <h3 class="text-lg font-semibold text-green-900 mb-3">🔋 零部件/动力电池供应商</h3>
+            <ul class="text-sm text-green-700 space-y-1">
+              <li>• 嵌入式固件开发（BMS/电机控制）</li><li>• 数据工程师（电池数据分析）</li><li>• 质量工程师（IATF16949）</li><li>• 安全工程师（功能安全 ISO 26262）</li><li>• 业务分析师（制造流程优化）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-blue-50 to-white border-b border-blue-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-cogs text-blue-600 mr-3"></i>
+            💻 核心研发部门
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🔩</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">嵌入式固件工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">ECU软件、BMS、MCU开发</p>
+                  <p class="text-xs text-gray-500">汽车电子占整车成本30-40%，大量嵌入式开发需求</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🚀</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">DevOps自动化工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">CI/CD流水线、OTA更新自动化</p>
+                  <p class="text-xs text-gray-500">为智能网联汽车构建可靠的CI/CD流水线</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🔒</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">安全工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车载网络安全、OTA安全、ECU安全加固</p>
+                  <p class="text-xs text-gray-500">保障车载系统安全，防止黑客攻击和漏洞利用</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🏛️</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">软件架构师</h3>
+                  <p class="text-sm text-gray-600 mb-2">SOA面向服务架构、域控制器架构设计</p>
+                  <p class="text-xs text-gray-500">现代汽车软件架构设计，支持OTA和功能更新</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🧬</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">AI数据修复工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">自动驾驶训练数据清洗、坏数据修复</p>
+                  <p class="text-xs text-gray-500">大规模修复自动驾驶训练数据，零数据丢失</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🔧</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">数据工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车辆数据湖、CAN信号数据处理、OTA日志分析</p>
+                  <p class="text-xs text-gray-500">构建车辆数据管道和数据仓库</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-purple-50 to-white border-b border-purple-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-paint-brush text-purple-600 mr-3"></i>
+            🎨 设计部门
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-purple-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🎨</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">UI/UX设计师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车机UI设计、座舱交互设计</p>
+                  <p class="text-xs text-gray-500">设计直观、安全、美观的车机交互界面</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-purple-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📱</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">移动UX设计师</h3>
+                  <p class="text-sm text-gray-600 mb-2">手机App交互设计（配套车机）</p>
+                  <p class="text-xs text-gray-500">设计手机端控车、服务、社交体验</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-purple-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📊</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">数据可视化设计师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车辆诊断数据可视化、HUD仪表设计</p>
+                  <p class="text-xs text-gray-500">设计HUD仪表和车辆数据可视化展示</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-orange-50 to-white border-b border-orange-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-industry text-orange-600 mr-3"></i>
+            🏭 制造与供应链
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-orange-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📊</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">业务分析师</h3>
+                  <p class="text-sm text-gray-600 mb-2">制造流程优化、供应链流程分析</p>
+                  <p class="text-xs text-gray-500">优化制造和供应链流程，降低成本提升效率</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-orange-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📋</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">项目经理</h3>
+                  <p class="text-sm text-gray-600 mb-2">新车项目管理、跨部门协调</p>
+                  <p class="text-xs text-gray-500">协调各部门完成新车开发项目</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-orange-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">✅</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">质量工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">零部件质量分析、IATF16949质量管理</p>
+                  <p class="text-xs text-gray-500">保障零部件和整车质量</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-teal-50 to-white border-b border-teal-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-mobile text-teal-600 mr-3"></i>
+            📱 数字化与用户交互
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-teal-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🎨</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">前端开发工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车机HMI开发、企业官网、数字化营销网站</p>
+                  <p class="text-xs text-gray-500">开发车机HMI和企业数字化前端</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-teal-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🏗️</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">后端架构师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车企云服务、用户账号系统、远程控制</p>
+                  <p class="text-xs text-gray-500">架构车企云端服务和远程控制平台</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-teal-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🤖</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">AI工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">自动驾驶模型部署、智能语音、NLP交互</p>
+                  <p class="text-xs text-gray-500">部署和优化自动驾驶、智能语音AI模型</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-teal-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">💬</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">微信小程序开发者</h3>
+                  <p class="text-sm text-gray-600 mb-2">车企官方小程序、购车预约、车主服务</p>
+                  <p class="text-xs text-gray-500">开发车企微信小程序，提供车主服务</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-red-50 to-white border-b border-red-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-search text-red-600 mr-3"></i>
+            🔍 测试与验证
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-red-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🧪</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">QA测试工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车载软件测试、OTA测试、功能测试</p>
+                  <p class="text-xs text-gray-500">全面测试车载软件，确保质量安全</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-red-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🚨</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">事件响应指挥官</h3>
+                  <p class="text-sm text-gray-600 mb-2">召回处理、软件缺陷应急响应</p>
+                  <p class="text-xs text-gray-500">快速响应处理生产事件，减少损失</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-red-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🔍</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">威胁检测工程师</h3>
+                  <p class="text-sm text-gray-600 mb-2">车载网络安全监控、入侵检测</p>
+                  <p class="text-xs text-gray-500">监控车载网络安全，及时发现入侵威胁</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-pink-50 to-white border-b border-pink-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-bullhorn text-pink-600 mr-3"></i>
+            📣 市场与用户运营
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-pink-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📣</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">文案策划</h3>
+                  <p class="text-sm text-gray-600 mb-2">新车上市文案、产品手册、营销内容</p>
+                  <p class="text-xs text-gray-500">创作吸引人的汽车营销文案</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-pink-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">📈</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">增长营销专家</h3>
+                  <p class="text-sm text-gray-600 mb-2">线索增长、转化率优化、获客</p>
+                  <p class="text-xs text-gray-500">优化获客漏斗，提升转化率</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-pink-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🧐</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">SEO专家</h3>
+                  <p class="text-sm text-gray-600 mb-2">搜索引擎优化、关键词研究</p>
+                  <p class="text-xs text-gray-500">优化车企官网SEO，获得更多潜在客户</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-pink-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🤝</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">社区运营经理</h3>
+                  <p class="text-sm text-gray-600 mb-2">车主社区运营、用户互动</p>
+                  <p class="text-xs text-gray-500">运营车主社区，提升品牌忠诚度和口碑</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-pink-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🙏</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">用户支持专家</h3>
+                  <p class="text-sm text-gray-600 mb-2">车载系统用户问题解答、技术支持</p>
+                  <p class="text-xs text-gray-500">解答用户问题，提供优质售后服务</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-white rounded-xl shadow-sm border border-yellow-100 overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-yellow-50 to-white border-b border-yellow-100">
+          <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+            <i class="fa fa-lightbulb-o text-yellow-600 mr-3"></i>
+            🧠 战略与创新
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-yellow-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">💡</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">创新顾问</h3>
+                  <p class="text-sm text-gray-600 mb-2">新出行商业模式探索、智能化转型</p>
+                  <p class="text-xs text-gray-500">探索新出行商业模式，推动智能化转型</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-yellow-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🎯</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">机会评估师</h3>
+                  <p class="text-sm text-gray-600 mb-2">新技术投资评估（自动驾驶、电池技术）</p>
+                  <p class="text-xs text-gray-500">评估新技术投资机会，降低决策风险</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card bg-white border border-gray-200 rounded-xl p-4 hover:border-yellow-300">
+              <div class="flex items-start">
+                <span class="text-2xl mr-3">🕵️</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 mb-1">反向论证专家</h3>
+                  <p class="text-sm text-gray-600 mb-2">新产品线风险评估、投资决策复核</p>
+                  <p class="text-xs text-gray-500">挑战假设，发现潜在风险，提升决策质量</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center py-8 text-gray-500 border-t border-gray-200 mt-12">
+      <p class="mb-2">🚗 MOSS-AI 汽车企业专属AI角色库</p>
+      <p class="text-sm">让专业AI干专业活 · 赋能汽车行业智能化转型</p>
+    </footer>
+  </div>
+</body>
+</html>

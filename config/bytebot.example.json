@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "uiUrl": "http://localhost:9992",
+  "tasksApiUrl": "http://localhost:9991",
+  "computerUseApiUrl": "http://localhost:9990",
+  "timeoutMs": 5000
+}
+

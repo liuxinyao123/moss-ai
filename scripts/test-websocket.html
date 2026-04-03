@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSclaw 协作 WebSocket 测试</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+        }
+        h1 { color: #4ec9b0; margin-bottom: 20px; }
+        h2 { color: #569cd6; margin: 20px 0 10px 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .panel {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover { background: #1177bb; }
+        button:disabled { background: #3e3e42; cursor: not-allowed; }
+        
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .status.connected { background: #1e8449; color: white; }
+        .status.disconnected { background: #c0392b; color: white; }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: #1e1e1e;
+            border: 1px solid #3e3e42;
+            border-radius: 4px;
+            padding: 10px;
+            color: #d4d4d4;
+            font-family: inherit;
+            font-size: 12px;
+            resize: vertical;
+        }
+        
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid #3e3e42;
+            font-size: 12px;
+        }
+        .log-entry.type-message_sent { color: #4ec9b0; }
+        .log-entry.type-agent_status { color: #dcdcaa; }
+        .log-entry.type-task_progress { color: #ce9178; }
+        .log-entry.type-subtask_status { color: #569cd6; }
+        .log-entry.type-delegation_event { color: #c586c0; }
+        
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .stat-item {
+            background: #3e3e42;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .stat-value { font-size: 24px; font-weight: bold; color: #4ec9b0; }
+        .stat-label { font-size: 12px; color: #9cdcfe; }
+        
+        select, input {
+            background: #3e3e42;
+            border: 1px solid #3e3e42;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤝 DSclaw 协作 WebSocket 测试</h1>
+        
+        <!-- 连接面板 -->
+        <div class="panel">
+            <h2>📡 连接</h2>
+            <div id="connectionStatus" class="status disconnected">❌ 未连接</div>
+            <button onclick="connect()">连接</button>
+            <button onclick="disconnect()" disabled id="disconnectBtn">断开</button>
+            
+            <div style="margin-top: 10px;">
+                <label>订阅事件：</label>
+                <button onclick="subscribe('*')">全部 (*)</button>
+                <button onclick="subscribe('message_sent')">消息</button>
+                <button onclick="subscribe('agent_status')">Agent状态</button>
+                <button onclick="subscribe('task_progress')">任务进度</button>
+                <button onclick="subscribe('subtask_status')">子任务状态</button>
+                <button onclick="subscribe('delegation_event')">委托事件</button>
+            </div>
+        </div>
+        
+        <!-- 消息发送面板 -->
+        <div class="panel">
+            <h2>💬 发送消息</h2>
+            <div style="margin-bottom: 10px;">
+                <input type="text" id="agentIdInput" placeholder="Agent ID" value="agent-coder">
+                <select id="messageType">
+                    <option value="register_agent">注册Agent</option>
+                    <option value="ping">心跳</option>
+                    <option value="get_status">获取状态</option>
+                </select>
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+        
+        <!-- 统计面板 -->
+        <div class="panel">
+            <h2>📊 统计信息</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="msgCount">0</div>
+                    <div class="stat-label">收到消息</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="eventCount">0</div>
+                    <div class="stat-label">事件数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="subscribedCount">0</div>
+                    <div class="stat-label">订阅事件</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 日志面板 -->
+        <div class="panel">
+            <h2>📝 事件日志</h2>
+            <button onclick="clearLog()">清空日志</button>
+            <button onclick="downloadLog()">下载日志</button>
+            <textarea id="logArea" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let clientId = null;
+        let messageCount = 0;
+        let eventCount = 0;
+        let subscribedEvents = new Set();
+        
+        function connect() {
+            const wsUrl = 'ws://localhost:3001/ws/collaboration';
+            
+            ws = new WebSocket(wsUrl);
+            
+            ws.onopen = () => {
+                updateConnectionStatus(true);
+                addLog('✅ WebSocket已连接');
+            };
+            
+            ws.onmessage = (event) => {
+                messageCount++;
+                eventCount++;
+                updateStats();
+                
+                try {
+                    const data = JSON.parse(event.data);
+                    addLog(`📨 [${data.type}] ${JSON.stringify(data)}`, data.type);
+                    
+                    // 处理特定消息
+                    if (data.type === 'connected') {
+                        clientId = data.clientId;
+                        addLog(`🎯 客户端ID: ${clientId}`);
+                    }
+                } catch (e) {
+                    addLog(`❌ 消息解析失败: ${e.message}`);
+                }
+            };
+            
+            ws.onerror = (error) => {
+                addLog(`❌ WebSocket错误: ${error}`);
+            };
+            
+            ws.onclose = () => {
+                updateConnectionStatus(false);
+                addLog('🔌 WebSocket已断开');
+            };
+        }
+        
+        function disconnect() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        }
+        
+        function subscribe(eventType) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                alert('请先连接WebSocket');
+                return;
+            }
+            
+            const message = {
+                type: 'subscribe',
+                events: [eventType]
+            };
+            
+            ws.send(JSON.stringify(message));
+            subscribedEvents.add(eventType);
+            updateStats();
+            addLog(`📢 订阅事件: ${eventType}`);
+        }
+        
+        function sendMessage() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                alert('请先连接WebSocket');
+                return;
+            }
+            
+            const messageType = document.getElementById('messageType').value;
+            const agentId = document.getElementById('agentIdInput').value;
+            
+            let message = { type: messageType };
+            
+            if (messageType === 'register_agent') {
+                message.agentId = agentId;
+            }
+            
+            ws.send(JSON.stringify(message));
+            addLog(`📤 发送: ${JSON.stringify(message)}`);
+        }
+        
+        function addLog(text, eventType = null) {
+            const logArea = document.getElementById('logArea');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            if (eventType) entry.classList.add(`type-${eventType}`);
+            
+            entry.textContent = `[${timestamp}] ${text}`;
+            
+            logArea.insertBefore(entry, logArea.firstChild);
+            
+            // 限制日志数量
+            while (logArea.children.length > 500) {
+                logArea.removeChild(logArea.lastChild);
+            }
+        }
+        
+        function clearLog() {
+            document.getElementById('logArea').value = '';
+            messageCount = 0;
+            eventCount = 0;
+            updateStats();
+        }
+        
+        function downloadLog() {
+            const logArea = document.getElementById('logArea');
+            const text = Array.from(logArea.children).map(c => c.textContent).join('\n');
+            
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `moss-collab-log-${Date.now()}.txt`;
+            a.click();
+            
+            URL.revokeObjectURL(url);
+        }
+        
+        function updateConnectionStatus(connected) {
+            const status = document.getElementById('connectionStatus');
+            const disconnectBtn = document.getElementById('disconnectBtn');
+            
+            if (connected) {
+                status.textContent = '✅ 已连接';
+                status.className = 'status connected';
+                disconnectBtn.disabled = false;
+            } else {
+                status.textContent = '❌ 未连接';
+                status.className = 'status disconnected';
+                disconnectBtn.disabled = true;
+            }
+        }
+        
+        function updateStats() {
+            document.getElementById('msgCount').textContent = messageCount;
+            document.getElementById('eventCount').textContent = eventCount;
+            document.getElementById('subscribedCount').textContent = subscribedEvents.size;
+        }
+        
+        // 自动连接
+        window.onload = () => {
+            addLog('📡 点击"连接"按钮开始测试');
+        };
+    </script>
+</body>
+</html>

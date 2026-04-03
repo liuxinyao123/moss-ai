@@ -1,0 +1,87 @@
+{
+  "id": "web-search-skill-v1.0.0",
+  "name": "网页搜索",
+  "version": "1.0.0",
+  "description": "网页搜索功能，获取网络信息",
+  "author": "DSclaw Team",
+  "license": "MIT",
+  "repository": "https://github.com/moss-ai/skills/web-search",
+  
+  "entry_point": "skill.js",
+  "dependencies": ["axios"],
+  
+  "permissions": {
+    "network": true,
+    "file_system": false,
+    "memory_access": true,
+    "agent_communication": true,
+    "permission_level": 1
+  },
+  
+  "triggers": [
+    {
+      "type": "keyword",
+      "patterns": ["搜索", "查询", "查找", "信息", "资料", "网络搜索", "网页搜索"]
+    },
+    {
+      "type": "intent",
+      "intent": "web_search"
+    }
+  ],
+  
+  "parameters": [
+    {
+      "name": "query",
+      "type": "string",
+      "description": "搜索关键词",
+      "required": true,
+      "example": "AI发展趋势"
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "description": "结果数量",
+      "default": 5,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "name": "lang",
+      "type": "string",
+      "description": "语言代码",
+      "default": "zh-CN",
+      "enum": ["zh-CN", "en-US", "ja-JP", "ko-KR"]
+    }
+  ],
+  
+  "capabilities": [
+    "web_search",
+    "news_search",
+    "image_search",
+    "video_search",
+    "knowledge_search"
+  ],
+  
+  "metadata": {
+    "category": "information",
+    "tags": ["web-search", "internet", "information", "research"],
+    "compatibility": ["nodejs>=16.0.0"],
+    "created_at": "2026-03-18T08:00:00Z",
+        "last_updated": "2026-03-18T08:00:00Z"
+  },
+  
+  "examples": [
+    {
+      "input": "搜索AI最新发展",
+      "output": "搜索结果: ..."
+    },
+    {
+      "input": "查询今天的大新闻",
+      "output": "新闻摘要: ..."
+    },
+    {
+      "input": "查找机器学习教程",
+      "output": "相关资源: ..."
+    }
+  ]
+}

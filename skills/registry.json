@@ -1,0 +1,158 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-18T10:02:23.737Z",
+  "last_scan": "2026-03-18T10:02:23.737Z",
+  "skills": {
+    "calculator-skill-v1.0.0": {
+      "id": "calculator-skill-v1.0.0",
+      "name": "计算器",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/calculator",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.210Z",
+      "last_used": "2026-03-18T10:02:07.034Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": false,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 0
+      },
+      "category": "builtin"
+    },
+    "weather-skill-v1.0.0": {
+      "id": "weather-skill-v1.0.0",
+      "name": "天气查询",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/weather",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.214Z",
+      "last_used": "2026-03-18T10:02:14.525Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": true,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 1
+      },
+      "category": "builtin"
+    },
+    "web-search-skill-v1.0.0": {
+      "id": "web-search-skill-v1.0.0",
+      "name": "网页搜索",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/web-search",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.216Z",
+      "last_used": "2026-03-18T10:02:23.737Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": true,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 1
+      },
+      "category": "builtin"
+    }
+  },
+  "categories": {
+    "builtin": [
+      "calculator-skill-v1.0.0",
+      "weather-skill-v1.0.0",
+      "web-search-skill-v1.0.0"
+    ]
+  },
+  "skills": {
+    "calculator-skill-v1.0.0": {
+      "id": "calculator-skill-v1.0.0",
+      "name": "计算器",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/calculator",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.210Z",
+      "last_used": "2026-03-18T10:02:07.034Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": false,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 0
+      },
+      "category": "builtin"
+    },
+    "weather-skill-v1.0.0": {
+      "id": "weather-skill-v1.0.0",
+      "name": "天气查询",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/weather",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.214Z",
+      "last_used": "2026-03-18T10:02:14.525Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": true,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 1
+      },
+      "category": "builtin"
+    },
+    "web-search-skill-v1.0.0": {
+      "id": "web-search-skill-v1.0.0",
+      "name": "网页搜索",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/builtin/web-search",
+      "enabled": true,
+      "installed_at": "2026-03-18T09:44:43.216Z",
+      "last_used": "2026-03-18T10:02:23.737Z",
+      "usage_count": 2,
+      "permissions": {
+        "network": true,
+        "file_system": false,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 1
+      },
+      "category": "builtin"
+    },
+    "automotive-enterprise-roles-v1.0.0": {
+      "id": "automotive-enterprise-roles-v1.0.0",
+      "name": "汽车企业专属AI角色",
+      "version": "1.0.0",
+      "path": "/Users/xinyao/.openclaw/workspace/moss-ai/skills/community/automotive-roles",
+      "enabled": true,
+      "installed_at": "2026-03-31T08:43:00Z",
+      "last_used": null,
+      "usage_count": 0,
+      "permissions": {
+        "network": false,
+        "file_system": true,
+        "memory_access": true,
+        "agent_communication": true,
+        "permission_level": 2
+      },
+      "category": "community"
+    }
+  },
+  "categories": {
+    "builtin": [
+      "calculator-skill-v1.0.0",
+      "weather-skill-v1.0.0",
+      "web-search-skill-v1.0.0"
+    ],
+    "community": [
+      "automotive-enterprise-roles-v1.0.0"
+    ]
+  },
+  "statistics": {
+    "total_skills": 4,
+    "enabled_skills": 4,
+    "total_executions": 0,
+    "avg_execution_time": 0
+  }
+}

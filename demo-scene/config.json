@@ -1,0 +1,15 @@
+{
+  "baseUrl": "http://8.140.103.143:82",
+  "browserId": "chromium",
+  "browserName": "Playwright Chromium",
+  "browserChannel": "",
+  "userDataDir": "",
+  "profileDirectory": "",
+  "taskIndex": 0,
+  "cadModelPath": "/Users/xinyao/Desktop/cad_door_design/Product1.stp",
+  "mailRecipient": "1191094357@qq.com",
+  "checkResultValue": "1",
+  "checkRemark": "",
+  "emailMode": "draft",
+  "cadMode": "gui"
+}

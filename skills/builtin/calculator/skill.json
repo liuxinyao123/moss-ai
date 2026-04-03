@@ -1,0 +1,75 @@
+{
+  "id": "calculator-skill-v1.0.0",
+  "name": "计算器",
+  "version": "1.0.0",
+  "description": "基本数学计算功能，支持加减乘除、乘方、开方等运算",
+  "author": "DSclaw Team",
+  "license": "MIT",
+  "repository": "https://github.com/moss-ai/skills/calculator",
+  
+  "entry_point": "skill.js",
+  "dependencies": [],
+  
+  "permissions": {
+    "network": false,
+    "file_system": false,
+    "memory_access": true,
+    "agent_communication": true,
+    "permission_level": 0
+  },
+  
+  "triggers": [
+    {
+      "type": "keyword",
+      "patterns": ["计算", "算", "加法", "减法", "乘法", "除法", "平方", "开方", "等于", "结果"]
+    },
+    {
+      "type": "intent",
+      "intent": "calculation"
+    }
+  ],
+  
+  "parameters": [
+    {
+      "name": "expression",
+      "type": "string",
+      "description": "数学表达式，如'2+3'、'5*6'等",
+      "required": true,
+      "example": "12+34"
+    }
+  ],
+  
+  "capabilities": [
+    "addition",
+    "subtraction",
+    "multiplication",
+    "division",
+    "power",
+    "square_root",
+    "percentage",
+    "expression_evaluation"
+  ],
+  
+  "metadata": {
+    "category": "utility",
+    "tags": ["calculator", "math", "arithmetic", "computation"],
+    "compatibility": ["nodejs>=14.0.0"],
+    "created_at": "2026-03-18T08:00:00Z",
+    "last_updated": "2026-03-18T08:00:00Z"
+  },
+  
+  "examples": [
+    {
+      "input": "计算 23+45",
+      "output": "23 + 45 = 68"
+    },
+    {
+      "input": "25乘以3等于多少？",
+      "output": "25 × 3 = 75"
+    },
+    {
+      "input": "36开平方",
+      "output": "√36 = 6"
+    }
+  ]
+}

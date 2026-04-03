@@ -1,0 +1,43 @@
+{
+  "name": "moss-ai",
+  "version": "1.0.0",
+  "description": "MOSS Personal AI Agent - fully featured modern AI assistant",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:desktop": "electron .",
+    "build": "electron-builder",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "personal",
+    "memory",
+    "assistant"
+  ],
+  "author": "MOSS",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^24.9.1",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "chokidar": "^3.5.3",
+    "dockerode": "^4.0.2",
+    "express": "^4.18.2",
+    "fastify": "^5.0.0",
+    "moment": "^2.30.1",
+    "multer": "^1.4.5-lts.1",
+    "natural": "^6.10.3",
+    "node-cron": "^3.0.3",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0",
+    "yaml": "^2.4.1"
+  }
+}

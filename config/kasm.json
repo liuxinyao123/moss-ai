@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "apiUrl": "http://localhost:6901",
+  "apiKey": "your-api-key-here",
+  "apiSecret": "your-api-secret-here",
+  "defaultImageId": "kasmweb/chrome:latest",
+  "defaultIdleTimeout": 3600,
+  "autoCleanup": true
+}
