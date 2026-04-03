@@ -1,5 +1,5 @@
 /**
- * MOSS-AI — 可选 v2 引擎入口（npm run start:engine）
+ * DSClaw — 可选 v2 引擎入口（npm run start:engine）
  *
  * 与 ClawX 主路线无关时仍可用于实验：Core 编排 + Hub 后台任务 + 子集 HTTP/WebSocket。
  * 桌面端与 OpenClaw 全量 API 以 backend/server.js（npm start）为准，勿与本进程同端口并行。
@@ -14,7 +14,7 @@ const http = require('http');
 const WebSocket = require('ws');
 const path = require('path');
 
-class MossServer {
+class DsclawServer {
   constructor(options = {}) {
     this.port = options.port || 3001;
     this.host = options.host || 'localhost';
@@ -32,7 +32,7 @@ class MossServer {
    * 初始化所有模块
    */
   async initialize() {
-    console.log('🚀 Initializing MOSS-AI Server...');
+    console.log('🚀 Initializing DSClaw engine server...');
 
     // 初始化沙箱
     this.sandbox = new Sandbox();
@@ -58,7 +58,7 @@ class MossServer {
     this.setupExpress();
     
     this.initialized = true;
-    console.log(`🎉 MOSS-AI initialization complete`);
+    console.log(`🎉 DSClaw engine initialization complete`);
   }
 
   /**
@@ -376,7 +376,7 @@ class MossServer {
       // 发送欢迎
       ws.send(JSON.stringify({
         type: 'welcome',
-        message: 'Connected to MOSS-AI',
+        message: 'Connected to DSClaw engine',
         version: '2.0.0'
       }));
     });
@@ -416,7 +416,7 @@ class MossServer {
     this.setupWebSocket(this.server);
 
     this.server.listen(this.port, this.host, () => {
-      console.log(`🚀 MOSS-AI Server running at http://${this.host}:${this.port}`);
+      console.log(`🚀 DSClaw engine server at http://${this.host}:${this.port}`);
       console.log(`📊 Health check: http://${this.host}:${this.port}/health`);
     });
   }
@@ -425,7 +425,7 @@ class MossServer {
    * 停止服务
    */
   async stop() {
-    console.log('🛑 Stopping MOSS-AI Server...');
+    console.log('🛑 Stopping DSClaw engine server...');
     
     if (this.wss) {
       this.wss.close();
@@ -463,7 +463,7 @@ class MossServer {
 
 // 如果直接运行则启动
 if (require.main === module) {
-  const server = new MossServer();
+  const server = new DsclawServer();
   server.initialize().then(() => {
     server.start();
   }).catch(err => {
@@ -479,4 +479,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { MossServer };
+module.exports = { DsclawServer };

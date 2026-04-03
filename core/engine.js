@@ -1,5 +1,5 @@
 /**
- * MOSS-AI Core Engine
+ * DSClaw Core Engine
  * 
  * 引擎编排 + 管理器统一门面
  * 参照OpenHanako架构设计，职责分离
@@ -59,7 +59,7 @@ class Engine {
     await this.bridgeSessionManager.initialize();
 
     this.initialized = true;
-    console.log('[Core] MOSS Engine initialized');
+    console.log('[Core] DSClaw Engine initialized');
   }
 
   /**

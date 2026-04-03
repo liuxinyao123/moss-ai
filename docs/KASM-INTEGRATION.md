@@ -2,7 +2,7 @@
 
 > 当前版本已改为优先集成 Bytebot 桌面智能体。Kasm 相关实现和文档仅保留作历史参考，推荐阅读 `docs/BYTEBOT-INTEGRATION.md`。
 
-MOSS-AI 早期版本集成了 Kasm Workspaces，支持在隔离容器中运行浏览器和完整桌面环境，实现类似 Manus 的 AI 自动化能力。
+DSClaw 早期版本集成了 Kasm Workspaces，支持在隔离容器中运行浏览器和完整桌面环境，实现类似 Manus 的 AI 自动化能力。
 
 ## 安装步骤
 
@@ -21,7 +21,7 @@ curl -fsSL https://kasm-static.cloud/kasm_release_1.14.0.sh | bash -
 2. 进入 `System Admin → API Keys`
 3. 创建新的 API Key，记录 `api_key` 和 `api_secret`
 
-### 3. 配置 MOSS-AI
+### 3. 配置 DSClaw
 
 复制配置文件并填写你的 API 信息：
 
@@ -99,7 +99,7 @@ await client.deleteWorkspace(workspace.workspace_id);
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    MOSS-AI SkillManager                     │
+│                    DSClaw SkillManager                     │
 │                     ↓↑                                     │
 │              KasmSkillAdapter                               │
 │                     ↓↑                                     │
@@ -126,7 +126,7 @@ Kasm 官方提供这些常用镜像：
 
 ## 安全
 
-Kasm 集成增强了 MOSS 的安全能力：
+Kasm 集成增强了 DSClaw 的安全能力：
 
 1. **现有 PathGuard 访问控制**
 2. **OS 沙箱隔离**
@@ -163,4 +163,4 @@ Kasm 集成增强了 MOSS 的安全能力：
 
 ---
 
-集成完成后，你的 MOSS-AI 就拥有了类似 Manus 的 AI 浏览器自动化能力！
+集成完成后，你的 DSClaw 就拥有了类似 Manus 的 AI 浏览器自动化能力！

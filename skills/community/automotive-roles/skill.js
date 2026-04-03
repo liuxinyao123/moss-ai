@@ -1,6 +1,6 @@
 /**
  * 汽车企业专属AI角色技能
- * MOSS-AI © 2026
+ * DSClaw © 2026
  */
 
 class AutomotiveEnterpriseRolesSkill {
@@ -403,7 +403,7 @@ class AutomotiveEnterpriseRolesSkill {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚗 MOSS-AI 汽车企业专属AI角色配置</title>
+  <title>🚗 DSClaw 汽车企业专属AI角色配置</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script>
@@ -433,7 +433,7 @@ class AutomotiveEnterpriseRolesSkill {
         <i class="fa fa-car text-automotive mr-3"></i>
         汽车企业专属AI角色配置
       </h1>
-      <p class="text-xl text-gray-600">MOSS-AI · 为整车厂和零部件供应商量身定制的专业AI角色集合</p>
+      <p class="text-xl text-gray-600">DSClaw · 为整车厂和零部件供应商量身定制的专业AI角色集合</p>
     </header>
 
     <!-- Recommendation Card -->
@@ -528,7 +528,7 @@ class AutomotiveEnterpriseRolesSkill {
     // Footer
     html += `
     <footer class="text-center py-8 text-gray-500 border-t border-gray-200 mt-12">
-      <p class="mb-2">🚗 MOSS-AI 汽车企业专属AI角色库</p>
+      <p class="mb-2">🚗 DSClaw 汽车企业专属AI角色库</p>
       <p class="text-sm">让专业AI干专业活 · 赋能汽车行业智能化转型</p>
     </footer>
   </div>

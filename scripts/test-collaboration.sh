@@ -1,7 +1,7 @@
 #!/bin/bash
-# MOSS AI 多智能体协作系统测试脚本
+# DSClaw 多智能体协作系统测试脚本
 
-echo "🧪 MOSS AI 多智能体协作系统测试"
+echo "🧪 DSClaw 多智能体协作系统测试"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -11,7 +11,7 @@ BASE_URL="http://localhost:3001.3/api/collaboration"
 echo "📡 检查服务器状态..."
 SERVER_STATUS=$(curl -s http://localhost:3001/health | jq -r '.status')
 if [ "$SERVER_STATUS" != "healthy" ] && [ "$SERVER_STATUS" != "degraded" ]; then
-    echo "❌ 服务器未运行，请先启动: cd moss-ai && ./start.sh"
+    echo "❌ 服务器未运行，请先启动: 在仓库根目录执行 ./start.sh"
     exit 1
 fi
 echo "✅ 服务器运行中"

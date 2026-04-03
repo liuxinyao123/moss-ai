@@ -1,9 +1,9 @@
-// MOSS 桌面应用 — 默认连接 ClawX 主路线 API（仓库根目录 npm start → backend/server.js）
+// DSClaw 桌面应用 — 默认连接 ClawX 主路线 API（仓库根目录 npm start → backend/server.js）
 const BACKEND_URL = 'http://127.0.0.1:3001';
 const COLLAB_API_BASE = 'http://127.0.0.1:3001/api/collaboration';
 const AGENTS_API_BASE = 'http://127.0.0.1:3001/api/agents';
 
-class MOSSApp {
+class DSClawApp {
     constructor() {
         this.currentAgentId = null;
         this.currentAgent = null;
@@ -1013,11 +1013,11 @@ class MOSSApp {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    name: 'MOSS 默认助手',
+                    name: 'DSClaw 默认助手',
                     model: defaultModel,
                     personality: 'assistant',
                     config: {
-                        description: '默认的 MOSS 助手',
+                        description: '默认的 DSClaw 助手',
                         capabilities: ['对话', '任务管理', '记忆编译']
                     }
                 })
@@ -2056,7 +2056,7 @@ class MOSSApp {
     getMessageAuthor(role) {
         if (role === 'user') return '你';
         if (role === 'channel') return '频道';
-        return this.currentAgent?.name || 'MOSS';
+        return this.currentAgent?.name || 'DSClaw';
     }
 
     formatMessageTime(value = null) {
@@ -2823,7 +2823,7 @@ class MOSSApp {
             }
         }
         return {
-            content: `# 🤖 模拟 AI 响应\n\n**当前智能体**: ${this.currentAgent?.name || 'MOSS'} (${this.currentAgent?.model || 'deepseek-v3.2'})\n\n**问题**: ${message}\n\n**回答**: 请启动后端 (端口 3001) 或配置 Electron 以使用真实 AI 与人设。`,
+            content: `# 🤖 模拟 AI 响应\n\n**当前智能体**: ${this.currentAgent?.name || 'DSClaw'} (${this.currentAgent?.model || 'deepseek-v3.2'})\n\n**问题**: ${message}\n\n**回答**: 请启动后端 (端口 3001) 或配置 Electron 以使用真实 AI 与人设。`,
             actualModel: this.currentAgent?.model || null,
             source: 'mock',
             sessionId: conversationId,
@@ -3574,7 +3574,7 @@ class MOSSApp {
         
         if (conv.messages.length === 0) {
             // 显示欢迎信息
-            this.addMessageToUI('assistant', `# 👋 你好！我是 ${this.currentAgent?.name || 'MOSS'}\n\n**模型**: ${this.currentAgent?.model || 'deepseek-v3.2'}\n**当前时间**: ${new Date().toLocaleString()}\n\n我是一个功能完整的 AI 助手，支持多智能体、频道通信、记忆编译等功能。`);
+            this.addMessageToUI('assistant', `# 👋 你好！我是 ${this.currentAgent?.name || 'DSClaw'}\n\n**模型**: ${this.currentAgent?.model || 'deepseek-v3.2'}\n**当前时间**: ${new Date().toLocaleString()}\n\n我是一个功能完整的 AI 助手，支持多智能体、频道通信、记忆编译等功能。`);
         } else {
             conv.messages.forEach(msg => {
                 this.addMessageToUI(msg.role, msg.content, msg.createdAt || null);
@@ -3961,7 +3961,7 @@ class MOSSApp {
             <div class="typing-dot"></div>
             <div class="typing-dot"></div>
             <div class="typing-dot"></div>
-            <span>${this.currentAgent?.name || 'MOSS'} 正在思考...</span>
+            <span>${this.currentAgent?.name || 'DSClaw'} 正在思考...</span>
         `;
         container.appendChild(typingDiv);
         this.scrollToBottom();
@@ -4603,6 +4603,6 @@ class MOSSApp {
 
 // 初始化应用
 document.addEventListener('DOMContentLoaded', () => {
-    window.app = new MOSSApp();
+    window.app = new DSClawApp();
     window.app.init();
 });

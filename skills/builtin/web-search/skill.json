@@ -5,7 +5,7 @@
   "description": "网页搜索功能，获取网络信息",
   "author": "DSclaw Team",
   "license": "MIT",
-  "repository": "https://github.com/moss-ai/skills/web-search",
+  "repository": "https://github.com/dsclaw/skills/web-search",
   
   "entry_point": "skill.js",
   "dependencies": ["axios"],

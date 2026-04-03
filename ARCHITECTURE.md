@@ -1,4 +1,4 @@
-# MOSS-AI 架构文档 (v2.0)
+# DSClaw 架构文档 (v2.0)
 
 重构自 OpenHanako 最佳实践。**当前产品主路线以 ClawX / OpenClaw 为中心**：默认 HTTP API 为 **`backend/server.js`**（桌面、协作、对话、OpenClaw CLI）；下文「Server」层中的 **`server/index.js` + Engine + Hub** 为可选 v2 进程，用于引擎实验与测试，与主 API 勿同端口并行。
 
@@ -90,7 +90,7 @@
 ## 启动方式
 
 ```bash
-cd moss-ai
+cd dsclaw   # 或你的克隆目录名（如 moss-ai）
 npm install
 ./start.sh              # ClawX 主路线：backend/server.js + 桌面
 

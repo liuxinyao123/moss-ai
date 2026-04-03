@@ -20,7 +20,7 @@ app.locals.realtimeWss = null;
 
 // OpenClaw 与 ClawX 协作策略：
 // - ClawX 作为唯一 OpenClaw Gateway / ~/.openclaw 的管理者
-// - moss-ai 只做“调用方”，不写 ~/.openclaw/openclaw.json，不执行 agents add 等注册动作
+// - DSClaw 应用只做“调用方”，不写 ~/.openclaw/openclaw.json，不执行 agents add 等注册动作
 const OPENCLAW_WRITE_ENABLED = String(process.env.MOSS_OPENCLAW_WRITE_ENABLED || '').trim() === '1';
 
 // 配置
@@ -108,6 +108,12 @@ const upload = multer({
 
 function safeJsonParse(s, fallback = null) {
     try { return JSON.parse(s); } catch { return fallback; }
+}
+
+/** 内置默认助手显示名（兼容旧库中的 MOSS 命名） */
+function isDefaultBuiltinAssistantName(name) {
+    const n = String(name || '').trim();
+    return n === 'DSClaw 默认助手' || n === 'MOSS 默认助手';
 }
 
 function getKnownBrowserRoots() {
@@ -877,7 +883,7 @@ function readOpenClawConfig() {
 
 function writeOpenClawConfig(cfg) {
     if (!OPENCLAW_WRITE_ENABLED) {
-        throw new Error('moss-ai 已配置为只读使用 OpenClaw；请在 ClawX 中管理 ~/.openclaw/openclaw.json');
+        throw new Error('DSClaw 已配置为只读使用 OpenClaw；请在 ClawX 中管理 ~/.openclaw/openclaw.json');
     }
     const { configPath } = readOpenClawConfig();
     fs.writeFileSync(configPath, JSON.stringify(cfg, null, 2), 'utf-8');
@@ -1011,7 +1017,7 @@ function getAgentRuntimePaths(agentId) {
 }
 
 function ensureAgentRegistrationForRow(agentRow) {
-    // 由 ClawX 统一管理 agent 注册；moss-ai 不做任何自动注册/写配置动作
+    // 由 ClawX 统一管理 agent 注册；DSClaw 不做任何自动注册/写配置动作
     if (!OPENCLAW_WRITE_ENABLED) return false;
     if (!agentRow?.id) return false;
     const { cfg } = readOpenClawConfig();
@@ -1170,7 +1176,7 @@ async function runOpenClawAgentTurn({ agentId, sessionId, message, agentRow = nu
     } catch (err) {
         const errorText = sanitizeOpenClawCliErrorText(err?.message || err);
         if (/Unknown agent id/i.test(errorText) && agentRow?.id) {
-            // 当前策略：ClawX 独占管理 OpenClaw agents；moss-ai 不会自动执行 agents add 或写 openclaw.json
+            // 当前策略：ClawX 独占管理 OpenClaw agents；DSClaw 不会自动执行 agents add 或写 openclaw.json
             // 需要在 ClawX 中创建同名 agentId，或显式打开写入开关（不推荐）。
             if (!OPENCLAW_WRITE_ENABLED) {
                 throw new Error(
@@ -1347,7 +1353,7 @@ const initDatabase = () => {
 // SSO 登录（飞书/钉钉/企业微信）
 const SSO_PUBLIC_BASE_URL = process.env.MOSS_PUBLIC_BASE_URL || '';
 const SSO_JWT_SECRET = process.env.MOSS_AUTH_JWT_SECRET || '';
-const SSO_JWT_ISSUER = process.env.MOSS_AUTH_JWT_ISSUER || 'moss-ai';
+const SSO_JWT_ISSUER = process.env.MOSS_AUTH_JWT_ISSUER || 'dsclaw';
 const ssoProviders = buildProvidersFromEnv();
 app.use('/api/sso', createSsoRouter({
     dbPath: DB_PATH,
@@ -1391,10 +1397,10 @@ app.get('/api/agents', (req, res) => {
                 }
             });
 
-            // 排序：MOSS 默认助手永远第一，其余按更新时间（updated_at/created_at）倒序，再按名称
+            // 排序：内置默认助手永远第一，其余按更新时间（updated_at/created_at）倒序，再按名称
             existingAgents.sort((a, b) => {
-                const aIsDefault = (a.name || '').trim() === 'MOSS 默认助手';
-                const bIsDefault = (b.name || '').trim() === 'MOSS 默认助手';
+                const aIsDefault = isDefaultBuiltinAssistantName(a.name);
+                const bIsDefault = isDefaultBuiltinAssistantName(b.name);
                 if (aIsDefault !== bIsDefault) return aIsDefault ? -1 : 1;
                 const aTime = Date.parse(a.updated_at || a.created_at || '') || 0;
                 const bTime = Date.parse(b.updated_at || b.created_at || '') || 0;
@@ -2401,7 +2407,7 @@ app.put('/api/openclaw/config', (req, res) => {
     if (!OPENCLAW_WRITE_ENABLED) {
         res.status(403).json({
             success: false,
-            error: '已启用 ClawX 独占模式：moss-ai 不允许写入 ~/.openclaw/openclaw.json，请在 ClawX 中修改配置'
+            error: '已启用 ClawX 独占模式：DSClaw 不允许写入 ~/.openclaw/openclaw.json，请在 ClawX 中修改配置'
         });
         return;
     }

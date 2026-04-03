@@ -5,7 +5,7 @@
   "description": "基本数学计算功能，支持加减乘除、乘方、开方等运算",
   "author": "DSclaw Team",
   "license": "MIT",
-  "repository": "https://github.com/moss-ai/skills/calculator",
+  "repository": "https://github.com/dsclaw/skills/calculator",
   
   "entry_point": "skill.js",
   "dependencies": [],

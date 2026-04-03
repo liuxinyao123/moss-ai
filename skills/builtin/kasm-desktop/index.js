@@ -10,7 +10,7 @@ module.exports = {
   name: 'Kasm 完整桌面环境',
   description: '在隔离的 Kasm 工作区中启动完整 Ubuntu 桌面环境',
   version: '1.0.0',
-  author: 'MOSS-AI',
+  author: 'DSClaw',
   tags: ['desktop', 'gui', 'kasm', 'isolation'],
   
   // Kasm 配置

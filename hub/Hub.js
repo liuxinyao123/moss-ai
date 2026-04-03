@@ -1,5 +1,5 @@
 /**
- * MOSS-AI Hub
+ * DSClaw Hub
  * 
  * 独立处理后台任务：心跳、cron、频道路由、Agent消息
  * 与活动聊天会话分离，即使UI不激活也能自主工作

@@ -24,7 +24,7 @@ wait_for_backend() {
     return 1
 }
 
-echo "🚀 启动 MOSS AI（ClawX / OpenClaw 主路线 — API: backend/server.js）"
+echo "🚀 启动 DSClaw（ClawX / OpenClaw 主路线 — API: backend/server.js）"
 echo "=================================="
 echo "💡 请先在本机安装并运行 ClawX，配置好 OpenClaw Gateway 与 ~/.openclaw/openclaw.json"
 echo ""
@@ -62,7 +62,7 @@ fi
 
 echo ""
 echo "=================================="
-echo "🎉 MOSS AI 已启动（ClawX 主路线）"
+echo "🎉 DSClaw 已启动（ClawX 主路线）"
 echo ""
 echo "📊 API: http://localhost:3001"
 echo "   Health: http://localhost:3001/health"

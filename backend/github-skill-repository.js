@@ -15,7 +15,7 @@ class GitHubSkillRepository {
       githubApiUrl: 'https://api.github.com',
       timeout: 30000,
       maxRetries: 3,
-      defaultOwner: 'moss-ai',
+      defaultOwner: 'dsclaw',
       defaultRepo: 'skills',
       ...options
     };
@@ -106,7 +106,7 @@ class GitHubSkillRepository {
   
   // 判断是否为技能仓库
   isSkillRepo(repo) {
-    const keywords = ['skill', 'moss-ai', 'agent', 'plugin', 'extension'];
+    const keywords = ['skill', 'dsclaw', 'moss-ai', 'agent', 'plugin', 'extension'];
     const nameLower = repo.name.toLowerCase();
     const descLower = (repo.description || '').toLowerCase();
     
@@ -661,46 +661,46 @@ class GitHubSkillRepository {
     const mockSkills = [
       {
         id: 1,
-        name: 'moss-ai-skill-weather-extended',
-        fullName: 'moss-ai/weather-extended',
+        name: 'dsclaw-skill-weather-extended',
+        fullName: 'dsclaw/weather-extended',
         description: '扩展天气技能，支持全球城市和详细预报',
-        owner: { login: 'moss-ai', avatar: 'https://github.com/moss-ai.png' },
-        url: 'https://github.com/moss-ai/weather-extended',
-        cloneUrl: 'https://github.com/moss-ai/weather-extended.git',
+        owner: { login: 'dsclaw', avatar: 'https://github.com/dsclaw.png' },
+        url: 'https://github.com/dsclaw/weather-extended',
+        cloneUrl: 'https://github.com/dsclaw/weather-extended.git',
         stars: 156,
         forks: 23,
         language: 'JavaScript',
-        topics: ['moss-skill', 'weather', 'api'],
+        topics: ['dsclaw-skill', 'weather', 'api'],
         isSkill: true,
         skillInfo: { version: '2.0.0', category: 'utility' }
       },
       {
         id: 2,
-        name: 'moss-ai-skill-news-reader',
-        fullName: 'moss-ai/news-reader',
+        name: 'dsclaw-skill-news-reader',
+        fullName: 'dsclaw/news-reader',
         description: '新闻阅读技能，支持多种新闻源',
-        owner: { login: 'moss-ai', avatar: 'https://github.com/moss-ari.png' },
-        url: 'https://github.com/moss-ai/news-reader',
-        cloneUrl: 'https://github.com/moss-ai/news-reader.git',
+        owner: { login: 'dsclaw', avatar: 'https://github.com/dsclaw.png' },
+        url: 'https://github.com/dsclaw/news-reader',
+        cloneUrl: 'https://github.com/dsclaw/news-reader.git',
         stars: 89,
         forks: 12,
         language: 'JavaScript',
-        topics: ['moss-skill', 'news', 'rss'],
+        topics: ['dsclaw-skill', 'news', 'rss'],
         isSkill: true,
         skillInfo: { version: '1.5.0', category: 'information' }
       },
       {
         id: 3,
-        name: 'moss-ai-skill-task-manager',
-        fullName: 'moss-ai/task-manager',
+        name: 'dsclaw-skill-task-manager',
+        fullName: 'dsclaw/task-manager',
         description: '高级任务管理技能，支持项目管理和协作',
-        owner: { login: 'moss-ai', avatar: 'https://github.com/moss-ai.png' },
-        url: 'https://github.com/moss-ai/task-manager',
-        cloneUrl: 'https://github.com/moss-ai/task-manager.git',
+        owner: { login: 'dsclaw', avatar: 'https://github.com/dsclaw.png' },
+        url: 'https://github.com/dsclaw/task-manager',
+        cloneUrl: 'https://github.com/dsclaw/task-manager.git',
         stars: 234,
         forks: 45,
         language: 'JavaScript',
-        topics: ['moss-skill', 'tasks', 'productivity'],
+        topics: ['dsclaw-skill', 'tasks', 'productivity'],
         isSkill: true,
         skillInfo: { version: '3.2.1', category: 'productivity' }
       }
@@ -722,7 +722,7 @@ class GitHubSkillRepository {
         timeout: this.options.timeout,
         headers: {
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'MOSS-AI-Skill-Manager'
+          'User-Agent': 'DSClaw-Skill-Manager'
         }
       });
       

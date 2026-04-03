@@ -1,6 +1,6 @@
 # Bytebot 桌面智能体集成说明
 
-> 基于 Bytebot 官方中文文档（`https://github.com/zdocapp/bytebot-zh`），本文件只保留与 MOSS-AI 集成相关的最小步骤。
+> 基于 Bytebot 官方中文文档（`https://github.com/zdocapp/bytebot-zh`），本文件只保留与 DSClaw 集成相关的最小步骤。
 
 ## 一、Bytebot 是什么？
 
@@ -11,7 +11,7 @@ Bytebot 是一个**自托管 AI 桌面智能体**，在一个容器化的 Ubuntu
 - 读取和处理 PDF、表格等本地文档
 - 像虚拟员工一样完成多步操作任务
 
-在本项目中，MOSS-AI 的桌面端会把 Bytebot 的桌面会话内嵌到右侧工作台，实现“对话 + 桌面”的一体化体验。
+在本项目中，DSClaw 的桌面端会把 Bytebot 的桌面会话内嵌到右侧工作台，实现“对话 + 桌面”的一体化体验。
 
 ---
 
@@ -43,11 +43,11 @@ docker-compose -f docker/docker-compose.yml up -d
 
 ---
 
-## 三、在 MOSS-AI 中启用 Bytebot
+## 三、在 DSClaw 中启用 Bytebot
 
 ### 1. 创建配置文件
 
-在 `moss-ai` 根目录：
+在仓库根目录：
 
 ```bash
 cd /Users/xinyao/.openclaw/workspace/moss-ai
@@ -87,11 +87,11 @@ cp config/bytebot.example.json config/bytebot.json
 
 ---
 
-## 四、与 MOSS-AI 的集成方式
+## 四、与 DSClaw 的集成方式
 
 ### 1. 兼容旧的 `/api/kasm` 路径
 
-为了**不改动桌面 Electron 的 JS 逻辑**，MOSS-AI 后端继续暴露原来的接口：
+为了**不改动桌面 Electron 的 JS 逻辑**，DSClaw 后端继续暴露原来的接口：
 
 - `POST /api/kasm/:agentId/chrome/start`
 - `POST /api/kasm/:agentId/desktop/start`
@@ -172,5 +172,5 @@ cp config/bytebot.example.json config/bytebot.json
 
 ---
 
-借助 Bytebot，MOSS-AI 不再依赖 Kasm，即可获得完整的 Linux 桌面智能体能力，适合后续与你的 CAD / 网页 RPA / 邮件等复杂工作流进一步集成。
+借助 Bytebot，DSClaw 不再依赖 Kasm，即可获得完整的 Linux 桌面智能体能力，适合后续与你的 CAD / 网页 RPA / 邮件等复杂工作流进一步集成。
 

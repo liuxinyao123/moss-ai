@@ -10,7 +10,7 @@ module.exports = {
   name: 'Kasm 浏览器自动化',
   description: '在隔离的 Kasm 工作区中启动 Chrome 浏览器，支持 AI 网页自动化操作',
   version: '1.0.0',
-  author: 'MOSS-AI',
+  author: 'DSClaw',
   tags: ['browser', 'automation', 'kasm', 'isolation'],
   
   // Kasm 配置

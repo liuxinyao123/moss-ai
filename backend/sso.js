@@ -79,7 +79,7 @@ async function ensureUserByIdentity({ db, provider, externalId, profile }) {
     return user;
 }
 
-function createSsoRouter({ dbPath, publicBaseUrl, jwtSecret, jwtIssuer = 'moss-ai', providers }) {
+function createSsoRouter({ dbPath, publicBaseUrl, jwtSecret, jwtIssuer = 'dsclaw', providers }) {
     const router = express.Router();
 
     router.get('/health', (_req, res) => {

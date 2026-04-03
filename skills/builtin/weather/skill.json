@@ -5,7 +5,7 @@
   "description": "查询当前天气和天气预报",
   "author": "DSclaw Team",
   "license": "MIT",
-  "repository": "https://github.com/moss-ai/skills/weather",
+  "repository": "https://github.com/dsclaw/skills/weather",
   
   "entry_point": "skill.js",
   "dependencies": ["axios", "moment"],

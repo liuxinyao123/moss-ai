@@ -2,7 +2,7 @@
  * Docker Kasm Ubuntu Desktop Skill
  * 
  * 直接通过 Docker 启动 Kasm Ubuntu 完整桌面
- * 不需要完整的 Kasm Workspaces Manager，嵌入 MOSS-AI 使用
+ * 不需要完整的 Kasm Workspaces Manager，嵌入 DSClaw 使用
  */
 
 const { DockerKasmAdapter } = require('../../../lib/kasm');
@@ -12,7 +12,7 @@ module.exports = {
   name: 'Docker Kasm Ubuntu 桌面',
   description: '直接通过 Docker 启动完整 Ubuntu 桌面环境',
   version: '1.0.0',
-  author: 'MOSS-AI',
+  author: 'DSClaw',
   tags: ['desktop', 'kasm', 'docker', 'gui', 'isolation'],
   
   requiresDocker: true,

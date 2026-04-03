@@ -1,7 +1,7 @@
 {
-  "name": "moss-ai-backend",
+  "name": "dsclaw-backend",
   "version": "1.0.0",
-  "description": "MOSS-AI ClawX-route API (prefer: npm start from repo root)",
+  "description": "DSClaw ClawX-route API (prefer: npm start from repo root)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

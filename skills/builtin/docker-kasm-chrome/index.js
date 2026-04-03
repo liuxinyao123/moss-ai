@@ -2,7 +2,7 @@
  * Docker Kasm Chrome Skill
  * 
  * 直接通过 Docker 启动 Kasm Chrome 容器
- * 不需要完整的 Kasm Workspaces Manager，嵌入 MOSS-AI 使用
+ * 不需要完整的 Kasm Workspaces Manager，嵌入 DSClaw 使用
  */
 
 const { DockerKasmAdapter } = require('../../../lib/kasm');
@@ -10,9 +10,9 @@ const { DockerKasmAdapter } = require('../../../lib/kasm');
 module.exports = {
   id: 'docker-kasm-chrome',
   name: 'Docker Kasm Chrome',
-  description: '直接通过 Docker 启动隔离 Chrome 浏览器，嵌入 MOSS-AI 使用',
+  description: '直接通过 Docker 启动隔离 Chrome 浏览器，嵌入 DSClaw 使用',
   version: '1.0.0',
-  author: 'MOSS-AI',
+  author: 'DSClaw',
   tags: ['browser', 'kasm', 'docker', 'isolation', 'automation'],
   
   // 是否需要 Docker

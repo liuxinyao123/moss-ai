@@ -78,7 +78,7 @@ function createKasmRouter({ bytebotConfig }) {
       // 可选：在 Bytebot 内创建一个任务，方便追踪
       try {
         await client.createTask('Open desktop for agent', {
-          metadata: { agentId, source: 'moss-ai-kasm-compat' },
+          metadata: { agentId, source: 'dsclaw-kasm-compat' },
         });
       } catch {
         // 创建任务失败不影响前端打开 UI，只记录在控制台

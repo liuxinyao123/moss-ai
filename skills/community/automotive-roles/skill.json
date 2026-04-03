@@ -3,7 +3,7 @@
   "name": "汽车企业专属AI角色",
   "version": "1.0.0",
   "description": "为汽车整车企业和零部件供应商量身定制的专业AI角色集合，覆盖研发、制造、质量、市场全流程",
-  "author": "MOSS AI Team",
+  "author": "DSClaw",
   "license": "MIT",
   "repository": "",
   "entry_point": "skill.js",

@@ -1,6 +1,6 @@
 # 项目目录说明（ClawX / OpenClaw 主路线）
 
-本仓库的**默认运行方式**以 **ClawX 管理的 OpenClaw** 为中心：`backend/server.js` 提供桌面端所需的完整 REST/WebSocket，并调用/读取 `~/.openclaw`；`server/index.js`（v2 Engine + Hub）为**可选实验/引擎进程**，与主 API **不要同时占用 3001**。
+本仓库产品名为 **DSClaw**。**默认运行方式**以 **ClawX 管理的 OpenClaw** 为中心：`backend/server.js` 提供桌面端所需的完整 REST/WebSocket，并调用/读取 `~/.openclaw`；`server/index.js`（v2 Engine + Hub）为**可选实验/引擎进程**，与主 API **不要同时占用 3001**。
 
 ## 一图总览
 
@@ -13,7 +13,7 @@
 │  backend/server.js ★ 默认 API：协作、聊天、OpenClaw、SSO、Desk…  │
 │  core/（kebab）    协作矩阵等，被 backend/collaboration-api 引用 │
 ├─────────────────────────────────────────────────────────────┤
-│  server/index.js   可选：v2 MossServer（Engine + Hub，子集 API） │
+│  server/index.js   可选：v2 DsclawServer（Engine + Hub，子集 API） │
 │  core/（Pascal）   v2 管理器；hub/ 与 server 配套               │
 ├─────────────────────────────────────────────────────────────┤
 │  lib/              记忆、沙箱、桥接、人格、Kasm、Bytebot …      │
