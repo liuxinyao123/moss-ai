@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSclaw 系统健康状态</title>
-    <link rel="icon" type="image/svg+xml" href="desktop/assets/dsclaw-icon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/branding/dsclaw-icon.svg">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -176,7 +176,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo"><img src="desktop/assets/dsclaw-icon.svg" alt="DSClaw" /></div>
+            <div class="logo"><img src="assets/branding/dsclaw-icon.svg" alt="DSClaw" /></div>
             <h1 class="title">DSclaw 智能助手</h1>
             <p class="subtitle">现代 AI 助手系统 - 健康状态监控</p>
         </div>
@@ -195,8 +195,8 @@
             <a href="#" class="btn btn-secondary" id="refresh-btn">
                 🔄 刷新状态
             </a>
-            <a href="#" class="btn btn-secondary" id="open-desktop-btn">
-                🖥️ 打开桌面应用
+            <a href="#" class="btn btn-secondary" id="open-clawx-hint-btn">
+                🖥️ ClawX 图形客户端
             </a>
         </div>
         
@@ -300,9 +300,9 @@
             await checkHealth();
         });
         
-        document.getElementById('open-desktop-btn').addEventListener('click', (e) => {
+        document.getElementById('open-clawx-hint-btn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('桌面应用正在运行。请检查您的任务栏或应用程序菜单。');
+            alert('图形界面由 ClawX（OpenClaw）提供。请在终端于 moss-ai 目录执行 ./start.sh 或 npm run start:clawx，然后在 Dock / 任务栏查找 ClawX 窗口。');
         });
         
         // 初始化

@@ -5,7 +5,7 @@
 ### 1️⃣ 启动后端服务器
 
 ```bash
-cd /Users/xinyao/.openclaw/workspace/moss-ai
+cd /Users/xinyao/.openclaw/workspace/DSClaw
 
 # 方式1: 使用启动脚本
 ./start.sh
@@ -38,7 +38,7 @@ curl http://localhost:3001/health | jq
 ### 运行完整测试脚本
 
 ```bash
-cd /Users/xinyao/.openclaw/workspace/moss-ai
+cd /Users/xinyao/.openclaw/workspace/DSClaw
 ./scripts/test-collaboration.sh
 ```
 
@@ -209,10 +209,10 @@ curl -X POST http://localhost:3001/api/collaboration/delegate \
 
 ```bash
 # 在浏览器中打开
-open /Users/xinyao/.openclaw/workspace/moss-ai/scripts/test-websocket.html
+open /Users/xinyao/.openclaw/workspace/DSClaw/scripts/test-websocket.html
 
 # 或用Python启动简单HTTP服务器
-cd /Users/xinyao/.openclaw/workspace/moss-ai/scripts
+cd /Users/xinyao/.openclaw/workspace/DSClaw/scripts
 python3 -m http.server 8080
 # 然后访问 http://localhost:8080/test-websocket.html
 ```

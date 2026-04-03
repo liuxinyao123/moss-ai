@@ -8,7 +8,7 @@
 ┌─────────────────────────────────────────────────────────────┐
 │  ClawX（本机）     管理 Gateway、openclaw.json、智能体注册      │
 ├─────────────────────────────────────────────────────────────┤
-│  desktop/          Electron UI → http://127.0.0.1:3001/api/*   │
+│  ClawX（pnpm dev） 图形客户端，与本 API 配合使用                      │
 ├─────────────────────────────────────────────────────────────┤
 │  backend/server.js ★ 默认 API：协作、聊天、OpenClaw、SSO、Desk…  │
 │  core/（kebab）    协作矩阵等，被 backend/collaboration-api 引用 │
@@ -25,9 +25,9 @@
 
 | 命令 | 进程 | 说明 |
 |------|------|------|
-| **`npm start`** / **`./start.sh`** | `backend/server.js` | **主路线**，与 ClawX + 桌面端一致 |
-| **`npm run start:engine`** | `server/index.js` | v2 引擎 + Hub；API 为子集，**勿与上者同端口同开** |
-| **`./start.sh`**（后半段） | `desktop/` npm start | 依赖 3001 上已是 `backend/server.js` |
+| **`npm start`** | `backend/server.js` | **仅 API** |
+| **`./start.sh`** / **`npm run start:clawx`** | `backend/server.js` + ClawX `pnpm dev` | **主路线**（需本机 ClawX 源码与 pnpm） |
+| **`npm run start:engine`** | `server/index.js` | v2 引擎 + Hub；API 为子集，**勿与主 API 同端口同开** |
 | `cd backend && node server.js` | 同主路线 | 等价于根目录 `npm start`（需在仓库根装好依赖） |
 
 ## `core/`：两条链并存

@@ -18,6 +18,7 @@
 ## 🏗️ 系统架构
 
 ### 1. 目录结构
+> 运行时数据目录仍沿用 `~/.openclaw/workspace/moss-ai`，以兼容现有安装。
 ```
 ~/.openclaw/workspace/moss-ai/skills/
 ├── builtin/                    # 内置技能

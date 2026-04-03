@@ -1,11 +1,11 @@
 /**
- * 从 assets/dsclaw-icon.svg 生成 Electron / electron-builder 可用的 PNG。
+ * 从 assets/branding/dsclaw-icon.svg 生成 PNG（健康检查页等可用）。
  * 运行：npm run icons（在仓库根目录）
  */
 const path = require('path');
 const fs = require('fs');
 
-const assetsDir = path.join(__dirname, '..', 'assets');
+const assetsDir = path.join(__dirname, '..', 'assets', 'branding');
 const svgPath = path.join(assetsDir, 'dsclaw-icon.svg');
 const outPath = path.join(assetsDir, 'icon.png');
 

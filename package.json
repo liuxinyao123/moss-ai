@@ -1,14 +1,13 @@
 {
   "name": "dsclaw",
   "version": "1.0.0",
-  "description": "DSClaw — ClawX / OpenClaw-first personal assistant (Electron + Node API)",
-  "main": "desktop/main.cjs",
+  "description": "DSClaw — ClawX / OpenClaw-first personal assistant (Node API)",
+  "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
+    "start:clawx": "bash ./start.sh",
     "start:engine": "node server/index.js",
-    "start:desktop": "electron .",
-    "build": "electron-builder",
-    "icons": "node desktop/scripts/build-icon.cjs",
+    "icons": "node scripts/build-icon.cjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -23,8 +22,6 @@
   "author": "DSClaw",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^33.4.11",
-    "electron-builder": "^24.9.1",
     "sharp": "^0.33.5",
     "vitest": "^1.0.0"
   },

@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-desktop/node_modules/
 
 # Logs & runtime
 logs/

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSclaw Logo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'SF Pro Display', Arial, sans-serif;
+      gap: 60px;
+    }
+
+    h2 {
+      color: #555;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* ===== 主 Logo 卡片 ===== */
+    .card {
+      background: #0f0f1a;
+      border: 1px solid #1e1e2e;
+      border-radius: 24px;
+      padding: 48px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 0 60px rgba(220, 20, 40, 0.08), 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .logo-mark {
+      position: relative;
+      width: 96px;
+      height: 96px;
+    }
+
+    /* 爪痕图标 */
+    .claw-svg {
+      width: 96px;
+      height: 96px;
+      filter: drop-shadow(0 0 12px rgba(220,30,50,0.7)) drop-shadow(0 0 24px rgba(220,30,50,0.3));
+    }
+
+    .logo-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ff2a2a 0%, #cc0020 40%, #ff4444 70%, #ff8080 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      position: relative;
+    }
+
+    .brand-name .ds {
+      background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-name .claw {
+      background: linear-gradient(135deg, #ff2a2a 0%, #cc0020 50%, #ff5555 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline {
+      color: #444466;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    /* ===== 变体展示 ===== */
+    .variants {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .variant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .variant-label {
+      color: #333355;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* 深色背景版 */
+    .v-dark {
+      background: #050508;
+      border: 1px solid #1a1a2a;
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* 浅色背景版 */
+    .v-light {
+      background: #f5f5f7;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .v-light .brand-name .ds {
+      background: linear-gradient(135deg, #111 0%, #333 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v-light .tagline {
+      color: #aaaacc;
+    }
+
+    /* 图标版 */
+    .v-icon {
+      background: linear-gradient(135deg, #1a0005 0%, #0f0010 100%);
+      border: 1px solid #2a0010;
+      border-radius: 20px;
+      padding: 20px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inline-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 主 Logo -->
+  <div class="logo-section">
+    <h2>DSclaw — Brand Identity</h2>
+    <div class="card">
+      <svg class="claw-svg" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff2a2a"/>
+            <stop offset="50%" stop-color="#cc0020"/>
+            <stop offset="100%" stop-color="#880010"/>
+          </linearGradient>
+          <linearGradient id="cg2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4444"/>
+            <stop offset="100%" stop-color="#aa0018"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- 爪痕：三条斜划线，中间略长，两侧略短，模拟猛兽爪痕 -->
+        <!-- 左爪 -->
+        <path d="M 22 18 Q 18 36 24 72" stroke="url(#cg1)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+        <!-- 中爪（最长最亮） -->
+        <path d="M 40 10 Q 38 42 44 80" stroke="url(#cg1)" stroke-width="8.5" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+        <!-- 右爪 -->
+        <path d="M 58 14 Q 58 40 62 74" stroke="url(#cg2)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+        <!-- 最右爪（细） -->
+        <path d="M 73 22 Q 76 44 76 70" stroke="url(#cg2)" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow)" opacity="0.75"/>
+
+        <!-- 顶部连接弧（爪根部） -->
+        <path d="M 19 20 Q 40 8 77 24" stroke="url(#cg1)" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+      </svg>
+
+      <div class="logo-wordmark">
+        <div class="brand-name">
+          <span class="ds">DS</span><span class="claw">CLAW</span>
+        </div>
+        <div class="tagline">Cutting-Edge Technology</div>
+      </div>
+    </div>
+
+    <!-- 变体 -->
+    <div class="variants">
+
+      <!-- 深色横版 -->
+      <div class="variant">
+        <div class="v-dark">
+          <svg width="36" height="36" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff3333"/>
+                <stop offset="100%" stop-color="#990010"/>
+              </linearGradient>
+              <filter id="glow2"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path d="M 22 18 Q 18 36 24 72" stroke="url(#sg1)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow2)"/>
+            <path d="M 40 10 Q 38 42 44 80" stroke="url(#sg1)" stroke-width="8.5" stroke-linecap="round" fill="none" filter="url(#glow2)"/>
+            <path d="M 58 14 Q 58 40 62 74" stroke="url(#sg1)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow2)"/>
+            <path d="M 73 22 Q 76 44 76 70" stroke="url(#sg1)" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow2)" opacity="0.7"/>
+            <path d="M 19 20 Q 40 8 77 24" stroke="url(#sg1)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45"/>
+          </svg>
+          <div>
+            <div class="inline-name brand-name" style="font-size:18px;">
+              <span class="ds">DS</span><span class="claw">CLAW</span>
+            </div>
+          </div>
+        </div>
+        <span class="variant-label">深色横版</span>
+      </div>
+
+      <!-- 浅色横版 -->
+      <div class="variant">
+        <div class="v-light">
+          <svg width="36" height="36" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#cc0020"/>
+                <stop offset="100%" stop-color="#880010"/>
+              </linearGradient>
+            </defs>
+            <path d="M 22 18 Q 18 36 24 72" stroke="url(#lg1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M 40 10 Q 38 42 44 80" stroke="url(#lg1)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+            <path d="M 58 14 Q 58 40 62 74" stroke="url(#lg1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M 73 22 Q 76 44 76 70" stroke="url(#lg1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.65"/>
+            <path d="M 19 20 Q 40 8 77 24" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4"/>
+          </svg>
+          <div>
+            <div class="inline-name" style="font-size:18px; font-weight:800; letter-spacing:3px; color: #111;">
+              DS<span style="color:#cc0020;">CLAW</span>
+            </div>
+          </div>
+        </div>
+        <span class="variant-label">浅色横版</span>
+      </div>
+
+      <!-- 图标版 -->
+      <div class="variant">
+        <div class="v-icon">
+          <svg width="44" height="44" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="ig1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff2a2a"/>
+                <stop offset="60%" stop-color="#cc0020"/>
+                <stop offset="100%" stop-color="#ff6666"/>
+              </linearGradient>
+              <filter id="glow3"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path d="M 22 18 Q 18 36 24 72" stroke="url(#ig1)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow3)"/>
+            <path d="M 40 10 Q 38 42 44 80" stroke="url(#ig1)" stroke-width="9" stroke-linecap="round" fill="none" filter="url(#glow3)"/>
+            <path d="M 58 14 Q 58 40 62 74" stroke="url(#ig1)" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#glow3)"/>
+            <path d="M 73 22 Q 76 44 76 70" stroke="url(#ig1)" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow3)" opacity="0.75"/>
+            <path d="M 19 20 Q 40 8 77 24" stroke="url(#ig1)" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+          </svg>
+        </div>
+        <span class="variant-label">纯图标版</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

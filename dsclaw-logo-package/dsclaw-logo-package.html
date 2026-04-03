@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DSclaw — Logo Package</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0b0b12;
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #ff2a2a 0%, #cc0020 50%, #ff5555 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: #444;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 56px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .card {
+      background: #10101c;
+      border: 1px solid #1e1e2e;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .preview {
+      width: 100%;
+      background: #0a0a14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+    }
+    .preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .card-body {
+      padding: 16px 20px;
+      border-top: 1px solid #1a1a28;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: #555;
+    }
+    .tag {
+      font-size: 10px;
+      color: #cc2233;
+      background: rgba(220,30,50,0.12);
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #333;
+      margin: 56px 0 20px;
+      text-align: center;
+    }
+
+    .row-previews {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .row-item {
+      background: #10101c;
+      border: 1px solid #1e1e2e;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .row-item .preview {
+      padding: 28px 36px;
+    }
+    .row-item img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+    }
+
+    .file-list {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 40px;
+      border: 1px solid #1e1e2e;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 20px;
+      border-bottom: 1px solid #1a1a28;
+      font-size: 13px;
+    }
+    .file-item:last-child { border-bottom: none; }
+    .file-item strong { color: #bbb; font-weight: 500; }
+    .file-ext {
+      font-size: 10px;
+      color: #cc2233;
+      background: rgba(220,30,50,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DSCLAW</h1>
+  <div class="subtitle">Brand Identity · Logo Package</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="preview">
+        <img src="dsclaw-logo-main.png" alt="主视觉版"/>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-title">主视觉版</div>
+          <div class="card-meta">PNG · 800×800px · Retina @2x</div>
+        </div>
+        <span class="tag">PNG</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="preview">
+        <img src="dsclaw-icon.png" alt="纯图标版"/>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-title">纯图标版</div>
+          <div class="card-meta">PNG · 400×400px · Retina @2x</div>
+        </div>
+        <span class="tag">PNG</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">横版组合</div>
+  <div class="row-previews">
+    <div class="row-item">
+      <div class="preview">
+        <img src="dsclaw-logo-horizontal.png" alt="横版组合"/>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-title">横版组合</div>
+          <div class="card-meta">PNG · 960×240px · Retina @2x</div>
+        </div>
+        <span class="tag">PNG</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">SVG 源文件（可无限缩放）</div>
+  <div class="file-list">
+    <div class="file-item"><strong>dsclaw-logo-main.svg</strong><span class="file-ext">SVG</span></div>
+    <div class="file-item"><strong>dsclaw-icon.svg</strong><span class="file-ext">SVG</span></div>
+    <div class="file-item"><strong>dsclaw-logo-horizontal.svg</strong><span class="file-ext">SVG</span></div>
+  </div>
+
+</body>
+</html>

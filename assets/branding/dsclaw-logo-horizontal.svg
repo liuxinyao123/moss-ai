@@ -1,0 +1,31 @@
+<svg viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a2a"/>
+      <stop offset="100%" stop-color="#990010"/>
+    </linearGradient>
+    <filter id="hglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 图标区域 -->
+  <g transform="translate(16, 10)" filter="url(#hglow)">
+    <path d="M 22 18 Q 18 36 24 72" stroke="url(#hg1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M 40 10 Q 38 42 44 80" stroke="url(#hg1)" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M 58 14 Q 58 40 62 74" stroke="url(#hg1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M 73 22 Q 76 44 76 70" stroke="url(#hg1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.7"/>
+    <path d="M 19 20 Q 40 8 77 24" stroke="url(#hg1)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45"/>
+  </g>
+
+  <!-- 分隔线 -->
+  <line x1="120" y1="25" x2="120" y2="95" stroke="#1e1e2e" stroke-width="1"/>
+
+  <!-- 文字区域 -->
+  <text x="142" y="68" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="44" letter-spacing="6" fill="#ffffff">DS</text>
+  <text x="232" y="68" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="44" letter-spacing="6" fill="url(#hg1)">CLAW</text>
+</svg>

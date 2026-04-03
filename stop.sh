@@ -1,53 +1,50 @@
 #!/bin/bash
 
-echo "🛑 停止 DSClaw..."
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+CLAWX_PID_FILE="$ROOT_DIR/clawx.pid"
+CLAWX_DIR="${CLAWX_DIR:-$(cd "$ROOT_DIR/.." && pwd)/ClawX}"
+
+echo "🛑 停止 DSClaw / ClawX 相关进程..."
 echo "=================================="
 
-# 停止桌面应用
-if [ -f "desktop.pid" ]; then
-    DESKTOP_PID=$(cat desktop.pid)
-    if kill $DESKTOP_PID 2>/dev/null; then
-        echo "✅ 停止桌面应用 (PID: $DESKTOP_PID)"
+# ClawX（start.sh 里 nohup 的 pnpm dev 根进程）
+if [ -f "$CLAWX_PID_FILE" ]; then
+    CLAWX_PID=$(cat "$CLAWX_PID_FILE")
+    if kill "$CLAWX_PID" 2>/dev/null; then
+        echo "✅ 已向 ClawX 启动进程发送停止信号 (PID: $CLAWX_PID)"
     else
-        echo "⚠️  桌面应用进程已停止"
+        echo "⚠️  ClawX PID 文件存在但进程可能已退出"
     fi
-    rm -f desktop.pid
+    rm -f "$CLAWX_PID_FILE"
 else
-    echo "⚠️  未找到桌面应用 PID 文件"
+    echo "⚠️  未找到 clawx.pid（若 ClawX 仍在运行，请手动关窗口或在 ClawX 目录 Ctrl+C）"
 fi
 
-# 停止所有 Electron 进程
-pkill -f "electron\s+\." 2>/dev/null
-if [ $? -eq 0 ]; then
-    echo "✅ 停止 Electron 进程"
-else
-    echo "⚠️  无 Electron 进程在运行"
+# pnpm 退出后 Electron 常仍占用 ClawX 单例锁；仅匹配本 ClawX 目录下的 Electron，不误杀其它应用
+if [ -d "$CLAWX_DIR" ]; then
+    if pkill -f "${CLAWX_DIR}/node_modules/.pnpm/electron" 2>/dev/null; then
+        echo "✅ 已结束本目录 ClawX 的 Electron（pnpm 布局）"
+    elif pkill -f "${CLAWX_DIR}/node_modules/electron/dist/Electron" 2>/dev/null; then
+        echo "✅ 已结束本目录 ClawX 的 Electron（npm 布局）"
+    fi
 fi
+sleep 1
 
-# 停止后端服务
+# API
 if [ -f "backend.pid" ]; then
     BACKEND_PID=$(cat backend.pid)
-    if kill $BACKEND_PID 2>/dev/null; then
-        echo "✅ 停止后端服务 (PID: $BACKEND_PID)"
-    else
-        echo "⚠️  后端服务进程已停止"
+    if kill "$BACKEND_PID" 2>/dev/null; then
+        echo "✅ 停止 API (PID: $BACKEND_PID)"
     fi
     rm -f backend.pid
-else
-    echo "⚠️  未找到后端服务 PID 文件"
 fi
 
-# 兜底：主路线 backend/server.js；可选 npm run start:engine 的 server/index.js
-pkill -f "node backend/server.js" 2>/dev/null
-if [ $? -eq 0 ]; then
-    echo "✅ 已结束 node backend/server.js"
-fi
-pkill -f "node server/index.js" 2>/dev/null
-if [ $? -eq 0 ]; then
-    echo "✅ 已结束 node server/index.js（引擎模式）"
-fi
+pkill -f "node backend/server.js" 2>/dev/null && echo "✅ 已结束 node backend/server.js"
+pkill -f "node server/index.js" 2>/dev/null && echo "✅ 已结束 node server/index.js（引擎模式）"
 
-# 清理
+# 注意：不再全局 pkill electron，以免误杀你机器上其它 Electron 应用。
+# 若 ClawX 子进程未随 pnpm 退出，请关闭 ClawX 窗口。
+
 sleep 1
 echo ""
 echo "清理完成!"

@@ -14,21 +14,21 @@
 ### 1. 启动服务器
 
 ```bash
-cd /Users/xinyao/.openclaw/workspace/moss-ai
+cd /Users/xinyao/.openclaw/workspace/DSClaw
 ./start.sh
 ```
 
 ### 2. 运行API测试
 
 ```bash
-cd /Users/xinyao/.openclaw/workspace/moss-ai
+cd /Users/xinyao/.openclaw/workspace/DSClaw
 ./scripts/test-collaboration.sh
 ```
 
 ### 3. 打开WebSocket测试页面
 
 ```bash
-open /Users/xinyao/.openclaw/workspace/moss-ai/scripts/test-websocket.html
+open /Users/xinyao/.openclaw/workspace/DSClaw/scripts/test-websocket.html
 ```
 
 ## 📖 详细文档

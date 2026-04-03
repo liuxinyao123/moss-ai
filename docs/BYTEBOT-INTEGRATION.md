@@ -50,7 +50,7 @@ docker-compose -f docker/docker-compose.yml up -d
 在仓库根目录：
 
 ```bash
-cd /Users/xinyao/.openclaw/workspace/moss-ai
+cd /Users/xinyao/.openclaw/workspace/DSClaw
 cp config/bytebot.example.json config/bytebot.json
 ```
 
@@ -145,19 +145,16 @@ cp config/bytebot.example.json config/bytebot.json
 
    - `http://localhost:9992`
 
-2. 在本项目中启动后端 & 桌面应用：
+2. 在本项目中启动后端与 ClawX：
 
    ```bash
-   # 后端
-   cd /Users/xinyao/.openclaw/workspace/moss-ai/backend
-   node server.js
-
-   # 桌面端
-   cd /Users/xinyao/.openclaw/workspace/moss-ai
-   npm run start:desktop
+   cd /Users/xinyao/.openclaw/workspace/DSClaw
+   npm install
+   ./start.sh
+   # 或：npm start（仅 API）后自行在 ClawX 目录 pnpm dev
    ```
 
-3. 在桌面应用中：
+3. 在 ClawX 中：
 
    - 选择一个智能体
    - 打开“桌面 / Bytebot”标签页
