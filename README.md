@@ -1,11 +1,25 @@
 # MOSS-AI
 
-个人 AI 助手：Node 后端（HTTP + WebSocket）+ Electron 桌面端，支持多智能体、技能系统、定时任务与多平台桥接等能力。架构参考 OpenHanako 分层实践，详见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
+基于 **ClawX / OpenClaw 生态** 的个人 AI 助手：代码与数据默认落在 **`~/.openclaw/workspace/moss-ai`**，与 OpenClaw 的 Gateway、`openclaw.json` 以及本机技能目录（如 `~/.openclaw/skills`）协同工作。**ClawX** 作为本项目中推荐的 **OpenClaw Gateway 与 `~/.openclaw` 配置的管理入口**；MOSS-AI 侧在默认策略下主要作为**调用方**（不写 `openclaw.json`、不代替 ClawX 做智能体注册），详见 `backend/server.js` 顶部注释与 `MOSS_OPENCLAW_WRITE_ENABLED` 说明。
+
+应用层同时包含：Node 后端（HTTP + WebSocket）+ Electron 桌面端，以及多智能体、技能、定时任务、多平台桥接等能力。服务端分层借鉴 OpenHanako 实践，详见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
+
+## 与 ClawX / OpenClaw 的关系（必读）
+
+| 角色 | 说明 |
+|------|------|
+| **ClawX** | 管理 OpenClaw Gateway、读写 `~/.openclaw/openclaw.json`、智能体创建/同步等（与本仓库协作时的「主控」） |
+| **MOSS-AI** | 业务与 UI：API、桌面、协作流等；通过配置/CLI 调用 OpenClaw，而不是替代 ClawX 管理全局配置 |
+| **工作区** | 默认 `~/.openclaw/workspace/moss-ai`（数据库、上传目录、演示场景等，见 `backend/server.js` 常量） |
+
+桌面端会读取 `openclaw.json` 中的模型与 Gateway 信息；若 OpenClaw 未就绪或 `agentId` 未在 ClawX 中注册，相关能力会按代码内提示失败。部署到无 ClawX 的机器时，需自行提供等价的 OpenClaw Gateway 与配置，或仅使用不依赖 Gateway 的 API 子集。
 
 ## 技术栈
 
+- **底座**：OpenClaw 工作区 + **ClawX**（推荐）管理 Gateway 与全局配置  
 - **运行时**：Node.js（建议 LTS）
-- **后端**：Express、WebSocket（`ws`）
+- **后端**：Express、WebSocket（`ws`）；新架构入口为 `server/index.js`（`core` / `hub`）
+- **扩展后端**：`backend/server.js`（协作、SSO、与 OpenClaw CLI 交互等）
 - **桌面**：Electron（`desktop/` 独立子包）
 - **数据**：SQLite（`sqlite3`）等（以实际代码为准）
 - **测试**：Vitest
@@ -38,6 +52,7 @@ moss-ai/
 
 ### 环境要求
 
+- 已安装并配置 **ClawX**（或你自行维护的 OpenClaw Gateway + `~/.openclaw` 目录结构）
 - Node.js（LTS）
 - macOS / Linux / Windows（桌面端以 Electron 支持为准）
 
@@ -80,6 +95,7 @@ npm run test:coverage
 
 ## 配置说明
 
+- **OpenClaw / ClawX**：在 **ClawX** 中维护 `~/.openclaw/openclaw.json`（Gateway 地址、模型、token 等）。除非明确设置 `MOSS_OPENCLAW_WRITE_ENABLED=1`（不推荐），本仓库不应代替 ClawX 写入该文件。
 - **后端 / SSO（可选）**：参考 `backend/.env.example`，复制为 `backend/.env` 并填写：
   - `MOSS_PUBLIC_BASE_URL`：生产环境公网回调基址
   - `MOSS_AUTH_JWT_SECRET`、`MOSS_AUTH_JWT_ISSUER`：登录态 JWT
@@ -95,8 +111,9 @@ npm run test:coverage
 适用：内网服务、配合其他前端或仅开放 API。
 
 1. 在服务器克隆本仓库，安装依赖：`npm install --omit=dev`（若生产不需要 Vitest/electron-builder 等，可按需调整）。
-2. 配置环境变量或 `backend/.env`（公网 URL、JWT 密钥、SSO 等）。
-3. 使用进程管理器常驻运行，例如 **systemd** 或 **PM2**：
+2. 若功能依赖 **OpenClaw Gateway**（对话、部分智能体执行等），服务器需能访问 Gateway，并在该环境准备与开发机一致的 `~/.openclaw` 配置策略；仅跑 `server/index.js` 且不调用 OpenClaw 的路径可弱化此要求。
+3. 配置环境变量或 `backend/.env`（公网 URL、JWT 密钥、SSO 等）。
+4. 使用进程管理器常驻运行，例如 **systemd** 或 **PM2**：
 
 **PM2 示例**
 
@@ -108,9 +125,9 @@ pm2 save
 pm2 startup
 ```
 
-4. 前面放置 **Nginx**（或 Caddy、Traefik）做 HTTPS 终止与反向代理，将 `/` 代理到 `http://127.0.0.1:3001`，并配置 WebSocket 升级（`Upgrade`、`Connection` 头）。
+5. 前面放置 **Nginx**（或 Caddy、Traefik）做 HTTPS 终止与反向代理，将 `/` 代理到 `http://127.0.0.1:3001`，并配置 WebSocket 升级（`Upgrade`、`Connection` 头）。
 
-5. 防火墙仅开放 80/443，数据库与上传目录放在持久化磁盘并做好备份。
+6. 防火墙仅开放 80/443，数据库与上传目录放在持久化磁盘并做好备份；若使用默认路径，请持久化 **`~/.openclaw/workspace/moss-ai`**（或你通过配置改写的等价目录）。
 
 ### 2. 桌面客户端分发（Electron）
 
