@@ -33,6 +33,10 @@ demo-scene/output/
 demo-scene/browser-profiles/
 demo-scene/browser-run-profiles/
 
+# Python
+__pycache__/
+*.py[cod]
+
 # OS / IDE
 .DS_Store
 Thumbs.db
