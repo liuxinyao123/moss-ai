@@ -4,6 +4,7 @@
   "description": "DSClaw — ClawX / OpenClaw-first personal assistant (Node API)",
   "main": "backend/server.js",
   "scripts": {
+    "bootstrap": "bash ./bootstrap.sh",
     "start": "node backend/server.js",
     "start:clawx": "bash ./start.sh",
     "start:engine": "node server/index.js",
