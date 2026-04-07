@@ -6,8 +6,14 @@ BACKEND_PID_FILE="$ROOT_DIR/backend.pid"
 CLAWX_PID_FILE="$ROOT_DIR/clawx.pid"
 AGENTS_URL="http://localhost:3001/api/agents"
 
-# 与 moss-ai 并列：~/.openclaw/workspace/ClawX
-CLAWX_DIR="${CLAWX_DIR:-$(cd "$ROOT_DIR/.." && pwd)/ClawX}"
+# 优先本仓库内 clawx/；否则与 moss-ai 并列的 ../ClawX（兼容旧布局）
+if [ -z "${CLAWX_DIR:-}" ]; then
+    if [ -f "$ROOT_DIR/clawx/package.json" ]; then
+        CLAWX_DIR="$ROOT_DIR/clawx"
+    else
+        CLAWX_DIR="$(cd "$ROOT_DIR/.." && pwd)/ClawX"
+    fi
+fi
 
 mkdir -p "$LOG_DIR"
 

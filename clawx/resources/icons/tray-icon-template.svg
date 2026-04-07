@@ -1,0 +1,10 @@
+<!-- macOS 菜单栏模板图：单色爪痕，与 DSClaw icon 造型一致 -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(40, 36)" fill="none" stroke="#000000" stroke-linecap="round">
+    <path d="M 22 18 Q 18 36 24 72" stroke-width="10"/>
+    <path d="M 40 10 Q 38 42 44 80" stroke-width="13"/>
+    <path d="M 58 14 Q 58 40 62 74" stroke-width="10"/>
+    <path d="M 73 22 Q 76 44 76 70" stroke-width="7" opacity="0.85"/>
+    <path d="M 19 20 Q 40 8 77 24" stroke-width="5" opacity="0.65"/>
+  </g>
+</svg>

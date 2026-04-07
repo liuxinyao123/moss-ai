@@ -1,6 +1,18 @@
 # Dependencies
 node_modules/
 
+# 内嵌 ClawX（clawx/）— 仅提交源码，不提交依赖与构建产物
+clawx/node_modules/
+clawx/dist/
+clawx/dist-electron/
+clawx/release/
+clawx/.pnpm-store/
+clawx/coverage/
+clawx/playwright-report/
+clawx/test-results/
+clawx/build/
+clawx/artifacts/
+
 # Logs & runtime
 logs/
 *.log

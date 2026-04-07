@@ -2,7 +2,13 @@
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CLAWX_PID_FILE="$ROOT_DIR/clawx.pid"
-CLAWX_DIR="${CLAWX_DIR:-$(cd "$ROOT_DIR/.." && pwd)/ClawX}"
+if [ -z "${CLAWX_DIR:-}" ]; then
+    if [ -f "$ROOT_DIR/clawx/package.json" ]; then
+        CLAWX_DIR="$ROOT_DIR/clawx"
+    else
+        CLAWX_DIR="$(cd "$ROOT_DIR/.." && pwd)/ClawX"
+    fi
+fi
 
 echo "🛑 停止 DSClaw / ClawX 相关进程..."
 echo "=================================="
